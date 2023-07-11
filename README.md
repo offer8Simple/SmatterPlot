@@ -18,3 +18,6 @@ Some planned Features include:
     Easy sequencing of series with color, symbol, and line grouping.
 
 SmatterPlot is being developed in FreePascal which should enable us to write code once and then compile versions of it for many different operating systems.  When complete, SmatterPlot will be available for Windows, MacOS, Android, IOS, ChromeOS, Linux Ubuntu, and Raspberry Pi.
+
+The source code files are stored here.  A compiled executable version for Windows, SmatterPlot.exe, is contained in the zip file:  Smatterplot.zip.
+
