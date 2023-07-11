@@ -1,0 +1,330 @@
+object Form1: TForm1
+  Left = 415
+  Height = 596
+  Hint = 'This is a hint'
+  Top = 145
+  Width = 557
+  AllowDropFiles = True
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
+  Caption = 'SmatterPlot'
+  ClientHeight = 576
+  ClientWidth = 557
+  Color = clBlue
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clRed
+  Font.Height = -16
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Font.Style = [fsBold]
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  ShowHint = True
+  LCLVersion = '2.2.6.0'
+  object PageControl1: TPageControl
+    Left = 16
+    Height = 544
+    Top = 16
+    Width = 528
+    ActivePage = TabSheet2
+    Font.Color = clRed
+    ParentFont = False
+    TabIndex = 1
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Chart View'
+      ClientHeight = 516
+      ClientWidth = 520
+      Font.Color = clRed
+      ParentBiDiMode = False
+      ParentFont = False
+      object Chart1: TChart
+        Left = 8
+        Height = 500
+        Top = 8
+        Width = 500
+        AxisList = <        
+          item
+            Marks.LabelBrush.Style = bsClear
+            Minors = <            
+              item
+                Grid.Visible = False
+                Intervals.MinLength = 5
+                Intervals.Options = [aipUseCount, aipUseMinLength]
+                Marks.LabelBrush.Style = bsClear
+              end>
+            Range.Max = 405
+            Range.Min = 1
+            Range.UseMax = True
+            Range.UseMin = True
+            Title.LabelFont.Orientation = 900
+            Title.Visible = True
+            Title.Caption = 'Y-Axis Title'
+            Title.LabelBrush.Style = bsClear
+            Transformations = ChartAxisTransformations2
+          end        
+          item
+            Alignment = calBottom
+            Marks.LabelBrush.Style = bsClear
+            Minors = <            
+              item
+                Grid.Visible = False
+                Intervals.MinLength = 5
+                Intervals.Options = [aipUseCount, aipUseMinLength]
+                Marks.LabelBrush.Style = bsClear
+              end>
+            Title.Visible = True
+            Title.Caption = 'X-Axis Title'
+            Title.LabelBrush.Style = bsClear
+          end>
+        BackColor = clWhite
+        Legend.UseSidebar = False
+        Legend.Visible = True
+        Title.Text.Strings = (
+          'Chart Title'
+        )
+        Title.Visible = True
+        OnAfterDraw = Chart1AfterDraw
+        Color = clCream
+      end
+      object Button2: TButton
+        Left = 416
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'Formatter'
+        OnClick = Button2Click
+        TabOrder = 1
+      end
+      object Button4: TButton
+        Left = 0
+        Height = 25
+        Top = 496
+        Width = 75
+        Caption = 'Show MinY'
+        OnClick = Button4Click
+        TabOrder = 2
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Table View'
+      ClientHeight = 516
+      ClientWidth = 520
+      object StringGrid1: TStringGrid
+        Left = 8
+        Height = 434
+        Top = 48
+        Width = 488
+        TabOrder = 0
+      end
+      object Button3: TButton
+        Left = 344
+        Height = 25
+        Top = 491
+        Width = 131
+        Caption = 'Add Memo to Table'
+        OnClick = Button3Click
+        TabOrder = 1
+      end
+      object Label1: TLabel
+        Left = 38
+        Height = 15
+        Top = 13
+        Width = 96
+        Caption = 'Dataset Displayed:'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentColor = False
+        ParentFont = False
+      end
+      object ComboBox1: TComboBox
+        Left = 158
+        Height = 23
+        Top = 16
+        Width = 242
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ItemHeight = 15
+        ParentFont = False
+        TabOrder = 2
+        Text = 'ComboBox1'
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Source View'
+      ClientHeight = 516
+      ClientWidth = 520
+      object Memo1: TMemo
+        Left = 8
+        Height = 472
+        Top = 8
+        Width = 504
+        Lines.Strings = (
+          'Memo1'
+        )
+        TabOrder = 0
+      end
+      object Button1: TButton
+        Left = 361
+        Height = 25
+        Top = 489
+        Width = 75
+        Caption = 'Read Source'
+        TabOrder = 1
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 11
+    Top = 5
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem6: TMenuItem
+        Caption = 'New'
+        OnClick = MenuItem6Click
+      end
+      object MenuItem2: TMenuItem
+        Caption = 'Open ...'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Save ...'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Close ...'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'Export ...'
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Edit'
+      OnClick = MenuItem4Click
+      object MenuItem32: TMenuItem
+        Caption = 'Format Chart ...'
+        OnClick = MenuItem32Click
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'Titles ...'
+        OnClick = MenuItem14Click
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'Ticks and Grids ...'
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Series Colors ...'
+        OnClick = MenuItem16Click
+      end
+      object MenuItem17: TMenuItem
+        Caption = 'Series Markers ...'
+      end
+      object MenuItem18: TMenuItem
+        Caption = 'Series Lines ...'
+      end
+      object MenuItem19: TMenuItem
+        Caption = 'X- and Y- Variables ...'
+      end
+      object MenuItem20: TMenuItem
+        Caption = 'X-Scale: Linear'
+        OnClick = MenuItem20Click
+      end
+      object MenuItem21: TMenuItem
+        Caption = 'Y-Scale: Linear'
+        OnClick = MenuItem21Click
+      end
+      object MenuItem22: TMenuItem
+        Caption = 'Legend ...'
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Data'
+      object MenuItem23: TMenuItem
+        Caption = 'Rename Datasets ...'
+      end
+      object MenuItem24: TMenuItem
+        Caption = 'Combine Datasets ...'
+      end
+      object MenuItem25: TMenuItem
+        Caption = 'Split Datasets ...'
+      end
+      object MenuItem26: TMenuItem
+        Caption = 'Reduce Datasets ...'
+      end
+      object MenuItem27: TMenuItem
+        Caption = 'Interpolate/Extrapolate ...'
+      end
+      object MenuItem28: TMenuItem
+        Caption = 'Change Units ...'
+      end
+      object MenuItem29: TMenuItem
+        Caption = 'Add Variable ...'
+      end
+      object MenuItem30: TMenuItem
+        Caption = 'Delete Variable ...'
+      end
+    end
+    object MenuItem9: TMenuItem
+      Caption = 'Tools'
+      object MenuItem31: TMenuItem
+        Caption = 'Settings ...'
+      end
+    end
+    object MenuItem10: TMenuItem
+      Caption = 'Help'
+      object MenuItem11: TMenuItem
+        Caption = 'Online Help ...'
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'PDF Help ...'
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'About SmatterPlot ...'
+        OnClick = MenuItem13Click
+      end
+    end
+  end
+  object ChartAxisTransformations1: TChartAxisTransformations
+    Left = 243
+    Top = 96
+    object ChartAxisTransformations1LogarithmAxisTransform1: TLogarithmAxisTransform
+      Base = 10
+    end
+  end
+  object ChartAxisTransformations2: TChartAxisTransformations
+    Left = 8
+    Top = 48
+    object ChartAxisTransformations1LinearAxisTransform1: TLinearAxisTransform
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 23
+    Top = 125
+  end
+  object SavePictureDialog1: TSavePictureDialog
+    Left = 44
+    Top = 347
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 49
+    Top = 442
+    object MenuItem33: TMenuItem
+      Caption = 'Paste'
+    end
+  end
+  object ChartToolset1: TChartToolset
+    Left = 405
+    Top = 451
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+      ZoomRatio = 1.1
+    end
+  end
+end

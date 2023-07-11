@@ -1,0 +1,238 @@
+object Form3: TForm3
+  Left = 876
+  Height = 552
+  Top = 220
+  Width = 359
+  Caption = 'Titles'
+  ClientHeight = 552
+  ClientWidth = 359
+  Color = clSkyBlue
+  OnActivate = FormActivate
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 17
+    Height = 15
+    Top = 9
+    Width = 57
+    Caption = 'Chart Title:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 17
+    Height = 15
+    Top = 74
+    Width = 62
+    Caption = 'Y-Axis Title:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 17
+    Height = 15
+    Top = 143
+    Width = 62
+    Caption = 'X-Axis Title:'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 17
+    Height = 23
+    Top = 35
+    Width = 272
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 16
+    Height = 23
+    Top = 96
+    Width = 272
+    TabOrder = 1
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 16
+    Height = 23
+    Top = 168
+    Width = 272
+    TabOrder = 2
+    Text = 'Edit3'
+  end
+  object Button1: TButton
+    Left = 296
+    Height = 60
+    Top = 9
+    Width = 60
+    Caption = 'OK'
+    OnClick = Button1Click
+    TabOrder = 3
+  end
+  object Button2: TButton
+    Left = 296
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Cancel'
+    OnClick = Button2Click
+    TabOrder = 4
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 15
+    Top = 216
+    Width = 36
+    Caption = 'Series1'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 15
+    Top = 253
+    Width = 36
+    Caption = 'Series2'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 16
+    Height = 15
+    Top = 285
+    Width = 36
+    Caption = 'Series3'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 16
+    Height = 15
+    Top = 317
+    Width = 36
+    Caption = 'Series4'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 16
+    Height = 15
+    Top = 350
+    Width = 36
+    Caption = 'Series5'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 16
+    Height = 15
+    Top = 381
+    Width = 36
+    Caption = 'Series6'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 16
+    Height = 15
+    Top = 413
+    Width = 36
+    Caption = 'Series7'
+    ParentColor = False
+  end
+  object Label11: TLabel
+    Left = 16
+    Height = 15
+    Top = 445
+    Width = 36
+    Caption = 'Series8'
+    ParentColor = False
+  end
+  object Label12: TLabel
+    Left = 16
+    Height = 15
+    Top = 477
+    Width = 36
+    Caption = 'Series9'
+    ParentColor = False
+  end
+  object Label13: TLabel
+    Left = 16
+    Height = 15
+    Top = 509
+    Width = 42
+    Caption = 'Series10'
+    ParentColor = False
+  end
+  object Edit4: TEdit
+    Left = 64
+    Height = 23
+    Top = 216
+    Width = 272
+    TabOrder = 5
+    Text = 'Edit4'
+  end
+  object Edit5: TEdit
+    Left = 64
+    Height = 23
+    Top = 253
+    Width = 272
+    TabOrder = 6
+    Text = 'Edit5'
+  end
+  object Edit6: TEdit
+    Left = 64
+    Height = 23
+    Top = 285
+    Width = 272
+    TabOrder = 7
+    Text = 'Edit6'
+  end
+  object Edit7: TEdit
+    Left = 64
+    Height = 23
+    Top = 317
+    Width = 272
+    TabOrder = 8
+    Text = 'Edit7'
+  end
+  object Edit8: TEdit
+    Left = 64
+    Height = 23
+    Top = 350
+    Width = 272
+    TabOrder = 9
+    Text = 'Edit8'
+  end
+  object Edit9: TEdit
+    Left = 64
+    Height = 23
+    Top = 381
+    Width = 272
+    TabOrder = 10
+    Text = 'Edit9'
+  end
+  object Edit10: TEdit
+    Left = 64
+    Height = 23
+    Top = 413
+    Width = 272
+    TabOrder = 11
+    Text = 'Edit10'
+  end
+  object Edit11: TEdit
+    Left = 64
+    Height = 23
+    Top = 445
+    Width = 272
+    TabOrder = 12
+    Text = 'Edit11'
+  end
+  object Edit12: TEdit
+    Left = 64
+    Height = 23
+    Top = 477
+    Width = 272
+    TabOrder = 13
+    Text = 'Edit12'
+  end
+  object Edit13: TEdit
+    Left = 64
+    Height = 23
+    Top = 509
+    Width = 272
+    TabOrder = 14
+    Text = 'Edit13'
+  end
+end
