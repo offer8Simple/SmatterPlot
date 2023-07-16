@@ -7,15 +7,15 @@ SmatterPlot will have a lot of features designed to make everything quick and ea
 
 Some planned Features include:
 
-    Instant chart with drag-and-drop or copy-and-paste.
-    Instant chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
-    Instant title, axis and series labelling based on context.
-    Open data from a wide range of formats (.xlsx, .csv, .txt, etc.)
-    Generate charts in a wide range of image formats (.png, .jpg, .svg, .pdf, etc.)
-    Instant unit conversions right in the chart.
-    Instant zoom, pan, and resize.
-    Easy customization of colors, styles, sizes, symbols, lines, etc.
-    Easy sequencing of series with color, symbol, and line grouping.
+*Instant chart with drag-and-drop or copy-and-paste.
+*Instant chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
+*Instant title, axis and series labelling based on context.
+*Open data from a wide range of formats (.xlsx, .csv, .txt, etc.)
+*Generate charts in a wide range of image formats (.png, .jpg, .svg, .pdf, etc.)
+*Instant unit conversions right in the chart.
+*Instant zoom, pan, and resize.
+*Easy customization of colors, styles, sizes, symbols, lines, etc.
+*Easy sequencing of series with color, symbol, and line grouping.
 
 SmatterPlot is being developed in FreePascal which should enable us to write code once and then compile versions of it for many different operating systems.  When complete, SmatterPlot will be available for Windows, MacOS, Android, IOS, ChromeOS, Linux Ubuntu, and Raspberry Pi.
 
