@@ -78,6 +78,7 @@ var
 
 
 begin
+  // click Plot Equation Button
   lastrow:= Form1.StringGrid1.RowCount;
   lastdataset:= 0;
   if lastrow <= 2 then
@@ -130,7 +131,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Linear';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Linear'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -149,7 +150,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Quadratic';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Quadratic'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -169,7 +170,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Cubic';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Cubic'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -188,7 +189,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Polynomial (4th power)';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Polynomial (4th power)'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -207,7 +208,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Exponential';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Exponential'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -226,7 +227,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Logarhithmic';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Logarhithmic'+InttoStr(lastdataset+1);
 
               end;
            end;
@@ -245,7 +246,7 @@ begin
                  Form1.StringGrid1.Cells[ycol, lastrow+i]:= FloattoStr(Yval);
                  Form1.StringGrid1.Cells[0, lastrow+i]:= InttoStr(i+1);
                  Form1.StringGrid1.Cells[1, lastrow+i]:= InttoStr(lastdataset+1);
-                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Power Law';
+                 Form1.StringGrid1.Cells[2, lastrow+i]:= 'Power Law'+InttoStr(lastdataset+1);
 
               end;
            end;

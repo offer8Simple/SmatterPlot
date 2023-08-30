@@ -1,7 +1,7 @@
 object Form21: TForm21
-  Left = 515
+  Left = 264
   Height = 343
-  Top = 155
+  Top = 183
   Width = 320
   Caption = 'Tick Label Locations'
   ClientHeight = 343

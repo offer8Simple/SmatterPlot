@@ -15,6 +15,7 @@ type
 
   TForm10 = class(TForm)
     CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
     RadioButton3: TRadioButton;
@@ -23,7 +24,9 @@ type
     RadioButton6: TRadioButton;
     RadioButton7: TRadioButton;
     RadioButton8: TRadioButton;
+    Shape1: TShape;
     procedure CheckBox1Change(Sender: TObject);
+    procedure CheckBox2Change(Sender: TObject);
     procedure RadioButton1Change(Sender: TObject);
     procedure RadioButton2Change(Sender: TObject);
     procedure RadioButton3Change(Sender: TObject);
@@ -32,6 +35,7 @@ type
     procedure RadioButton6Change(Sender: TObject);
     procedure RadioButton7Change(Sender: TObject);
     procedure RadioButton8Change(Sender: TObject);
+
   private
 
   public
@@ -58,6 +62,15 @@ begin
      Form1.Chart1.Legend.Visible:= false;
 end;
 
+procedure TForm10.CheckBox2Change(Sender: TObject);
+begin
+  // Use Sidebar checkbox
+  if Form10.CheckBox2.Checked = true then
+    Form1.Chart1.Legend.UseSidebar:= true
+  else
+    Form1.Chart1.Legend.UseSidebar:= false;
+end;
+
 procedure TForm10.RadioButton1Change(Sender: TObject);
 begin
     // Radio button change
@@ -77,6 +90,7 @@ begin
      Form1.chart1.legend.Alignment:=laTopLeft;
   if Form10.RadioButton8.Checked= true then
      Form1.chart1.legend.Alignment:=laTopCenter;
+
 end;
 
 procedure TForm10.RadioButton2Change(Sender: TObject);
@@ -226,6 +240,8 @@ begin
   if Form10.RadioButton8.Checked= true then
      Form1.chart1.legend.Alignment:=laTopCenter;
 end;
+
+
 
 end.
 

@@ -12,7 +12,8 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, tachartlazaruspkg, Unit1, Unit2, Unit3, Unit4, Unit5, Unit6, Unit7,
   Unit8, Unit9, Unit10, Unit11, Unit12, Unit13, Unit14, Unit15, Unit16, Unit17,
-  Unit18, Unit19, Unit20, Unit21
+  Unit18, Unit19, Unit20, Unit21, Unit22, Unit23, Unit24, Unit25, Unit26,
+  Unit27, Unit28, Unit29, Unit30
   { you can add units after this };
 
 {$R *.res}
@@ -42,6 +43,15 @@ begin
   Application.CreateForm(TForm19, Form19);
   Application.CreateForm(TForm20, Form20);
   Application.CreateForm(TForm21, Form21);
+  Application.CreateForm(TForm22, Form22);
+  Application.CreateForm(TForm23, Form23);
+  Application.CreateForm(TForm24, Form24);
+  Application.CreateForm(TForm25, Form25);
+  Application.CreateForm(TForm26, Form26);
+  Application.CreateForm(TForm27, Form27);
+  Application.CreateForm(TForm28, Form28);
+  Application.CreateForm(TForm29, Form29);
+  Application.CreateForm(TForm30, Form30);
   Application.Run;
 end.
 

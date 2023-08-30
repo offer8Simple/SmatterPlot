@@ -59,12 +59,15 @@ begin
      if Form9.ComboBox1.Caption = Form1.StringGrid1.Cells[i,0] then
      begin
         ycol:= i;
+        myYAxisTitle:= Form9.ComboBox1.Caption
 
      end;
      if Form9.ComboBox2.Caption = Form1.StringGrid1.Cells[i,0] then
      begin
         xcol:= i;
-        //ShowMessage(InttoStr(i));
+        myXAxisTitle:= Form9.ComboBox2.Caption
+
+
      end;
   end;
   Form1.Button4.Click;

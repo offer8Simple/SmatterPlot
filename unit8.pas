@@ -1,5 +1,6 @@
 unit Unit8;
-
+// Project: SmatterPlot
+// unit8 = about box
 {$mode ObjFPC}{$H+}
 
 interface
@@ -13,6 +14,7 @@ type
 
   TForm8 = class(TForm)
     Image1: TImage;
+    Image2: TImage;
     StaticText1: TStaticText;
     StaticText2: TStaticText;
     StaticText3: TStaticText;

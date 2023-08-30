@@ -1,7 +1,7 @@
 object Form9: TForm9
-  Left = 920
+  Left = 608
   Height = 157
-  Top = 668
+  Top = 333
   Width = 320
   Caption = 'Select Variables'
   ClientHeight = 157

@@ -1,10 +1,10 @@
 object Form5: TForm5
-  Left = 952
-  Height = 333
-  Top = 214
+  Left = 912
+  Height = 417
+  Top = 309
   Width = 251
   Caption = 'Chart Sizes'
-  ClientHeight = 333
+  ClientHeight = 417
   ClientWidth = 251
   Color = clSkyBlue
   OnActivate = FormActivate
@@ -94,27 +94,27 @@ object Form5: TForm5
     TabOrder = 5
   end
   object Label4: TLabel
-    Left = 21
+    Left = 18
     Height = 15
-    Top = 192
+    Top = 264
     Width = 66
     Caption = 'Symbol Size:'
     ParentColor = False
     OnClick = Label1Click
   end
   object Edit4: TEdit
-    Left = 131
+    Left = 128
     Height = 23
-    Top = 192
+    Top = 264
     Width = 80
     OnChange = Edit4Change
     TabOrder = 6
     Text = 'Edit4'
   end
   object UpDown4: TUpDown
-    Left = 211
+    Left = 208
     Height = 23
-    Top = 192
+    Top = 264
     Width = 22
     Associate = Edit4
     Max = 200
@@ -123,27 +123,27 @@ object Form5: TForm5
     TabOrder = 7
   end
   object Label5: TLabel
-    Left = 21
+    Left = 18
     Height = 15
-    Top = 216
+    Top = 288
     Width = 60
     Caption = 'Line Width:'
     ParentColor = False
     OnClick = Label1Click
   end
   object Edit5: TEdit
-    Left = 131
+    Left = 128
     Height = 23
-    Top = 217
+    Top = 289
     Width = 80
     OnChange = Edit5Change
     TabOrder = 8
     Text = 'Edit5'
   end
   object UpDown5: TUpDown
-    Left = 211
+    Left = 208
     Height = 23
-    Top = 217
+    Top = 289
     Width = 22
     Associate = Edit5
     Min = 0
@@ -151,61 +151,61 @@ object Form5: TForm5
     TabOrder = 9
   end
   object Label6: TLabel
-    Left = 16
+    Left = 13
     Height = 15
-    Top = 264
+    Top = 336
     Width = 112
     Caption = 'Chart Height (pixels):'
     ParentColor = False
     OnClick = Label1Click
   end
   object Edit6: TEdit
-    Left = 131
+    Left = 128
     Height = 23
-    Top = 265
+    Top = 337
     Width = 80
     OnChange = Edit6Change
     TabOrder = 10
     Text = 'Edit6'
   end
   object UpDown6: TUpDown
-    Left = 211
+    Left = 208
     Height = 23
-    Top = 265
+    Top = 337
     Width = 22
     Associate = Edit6
     Increment = 10
-    Max = 1000
+    Max = 990
     Min = 10
     Position = 10
     TabOrder = 11
   end
   object Label7: TLabel
-    Left = 16
+    Left = 13
     Height = 15
-    Top = 292
+    Top = 364
     Width = 108
     Caption = 'Chart Width (pixels):'
     ParentColor = False
     OnClick = Label1Click
   end
   object Edit7: TEdit
-    Left = 131
+    Left = 128
     Height = 23
-    Top = 293
+    Top = 365
     Width = 80
     OnChange = Edit7Change
     TabOrder = 12
     Text = 'Edit7'
   end
   object UpDown7: TUpDown
-    Left = 211
+    Left = 208
     Height = 23
-    Top = 293
+    Top = 365
     Width = 22
     Associate = Edit7
     Increment = 10
-    Max = 1000
+    Max = 990
     Min = 10
     Position = 10
     TabOrder = 13
@@ -265,5 +265,33 @@ object Form5: TForm5
     Min = 0
     Position = 0
     TabOrder = 17
+  end
+  object Label10: TLabel
+    Left = 13
+    Height = 15
+    Top = 185
+    Width = 69
+    Caption = 'Legend Font:'
+    ParentColor = False
+    OnClick = Label1Click
+  end
+  object Edit10: TEdit
+    Left = 128
+    Height = 23
+    Top = 185
+    Width = 80
+    OnChange = Edit10Change
+    TabOrder = 18
+    Text = 'Edit10'
+  end
+  object UpDown10: TUpDown
+    Left = 208
+    Height = 23
+    Top = 185
+    Width = 22
+    Associate = Edit10
+    Min = 0
+    Position = 0
+    TabOrder = 19
   end
 end

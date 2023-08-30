@@ -1,7 +1,7 @@
 object Form16: TForm16
-  Left = 515
+  Left = 110
   Height = 194
-  Top = 154
+  Top = 315
   Width = 320
   Caption = 'Rename One Dataset'
   ClientHeight = 194

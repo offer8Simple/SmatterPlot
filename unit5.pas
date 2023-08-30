@@ -1,5 +1,6 @@
 unit Unit5;
-
+// Project: SmatterPlot
+// unit5 = sizes form
 {$mode ObjFPC}{$H+}
 
 interface
@@ -13,6 +14,7 @@ type
 
   TForm5 = class(TForm)
     Edit1: TEdit;
+    Edit10: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
@@ -22,6 +24,7 @@ type
     Edit8: TEdit;
     Edit9: TEdit;
     Label1: TLabel;
+    Label10: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -31,6 +34,7 @@ type
     Label8: TLabel;
     Label9: TLabel;
     UpDown1: TUpDown;
+    UpDown10: TUpDown;
     UpDown2: TUpDown;
     UpDown3: TUpDown;
     UpDown4: TUpDown;
@@ -39,6 +43,7 @@ type
     UpDown7: TUpDown;
     UpDown8: TUpDown;
     UpDown9: TUpDown;
+    procedure Edit10Change(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure Edit2Change(Sender: TObject);
     procedure Edit3Change(Sender: TObject);
@@ -85,6 +90,7 @@ begin
   Form5.Edit7.Caption := InttoStr(Form1.Chart1.Width);
   Form5.Edit8.Caption := InttoStr(Form1.Chart1.LeftAxis.Marks.LabelFont.Size);
   Form5.Edit9.Caption := InttoStr(Form1.Chart1.BottomAxis.Marks.LabelFont.Size);
+  Form5.Edit10.Caption := InttoStr(Form1.Chart1.Legend.Font.Size);
 
   snum := Form1.Chart1.Series.Count;
   if snum > 0 then
@@ -102,6 +108,14 @@ begin
   // change Chart Title Font Size
   myChartTitleFontSize:= StrtoInt(Form5.Edit1.Caption);
   Form1.chart1.title.font.size:= myChartTitleFontSize;
+
+end;
+
+procedure TForm5.Edit10Change(Sender: TObject);
+begin
+  // change Legend Font Size
+  myLegendFontSize:= StrtoInt(Form5.Edit10.Caption);
+  Form1.chart1.Legend.Font.Size:= myLegendFontSize;
 
 end;
 

@@ -1,0 +1,291 @@
+object Form23: TForm23
+  Left = 939
+  Height = 372
+  Top = 395
+  Width = 288
+  Caption = 'Line Sequence'
+  ClientHeight = 372
+  ClientWidth = 288
+  Color = clSkyBlue
+  OnActivate = FormActivate
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 16
+    Width = 36
+    Caption = 'Series1'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Top = 53
+    Width = 36
+    Caption = 'Series2'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 85
+    Width = 36
+    Caption = 'Series3'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 15
+    Top = 117
+    Width = 36
+    Caption = 'Series4'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 15
+    Top = 150
+    Width = 36
+    Caption = 'Series5'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 16
+    Height = 15
+    Top = 181
+    Width = 36
+    Caption = 'Series6'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 16
+    Height = 15
+    Top = 213
+    Width = 36
+    Caption = 'Series7'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 16
+    Height = 15
+    Top = 245
+    Width = 36
+    Caption = 'Series8'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 16
+    Height = 15
+    Top = 277
+    Width = 36
+    Caption = 'Series9'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 16
+    Height = 15
+    Top = 309
+    Width = 42
+    Caption = 'Series10'
+    ParentColor = False
+  end
+  object ComboBox1: TComboBox
+    Left = 85
+    Height = 23
+    Top = 14
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox1Change
+    TabOrder = 0
+    Text = 'ComboBox1'
+  end
+  object ComboBox2: TComboBox
+    Left = 85
+    Height = 23
+    Top = 48
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox2Change
+    TabOrder = 1
+    Text = 'ComboBox2'
+  end
+  object ComboBox3: TComboBox
+    Left = 85
+    Height = 23
+    Top = 80
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox3Change
+    TabOrder = 2
+    Text = 'ComboBox3'
+  end
+  object ComboBox4: TComboBox
+    Left = 85
+    Height = 23
+    Top = 117
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox4Change
+    TabOrder = 3
+    Text = 'ComboBox4'
+  end
+  object ComboBox5: TComboBox
+    Left = 85
+    Height = 23
+    Top = 150
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox5Change
+    TabOrder = 4
+    Text = 'ComboBox5'
+  end
+  object ComboBox6: TComboBox
+    Left = 85
+    Height = 23
+    Top = 181
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox6Change
+    TabOrder = 5
+    Text = 'ComboBox6'
+  end
+  object ComboBox7: TComboBox
+    Left = 85
+    Height = 23
+    Top = 213
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox7Change
+    TabOrder = 6
+    Text = 'ComboBox7'
+  end
+  object ComboBox8: TComboBox
+    Left = 85
+    Height = 23
+    Top = 245
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox8Change
+    TabOrder = 7
+    Text = 'ComboBox8'
+  end
+  object ComboBox9: TComboBox
+    Left = 85
+    Height = 23
+    Top = 277
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox9Change
+    TabOrder = 8
+    Text = 'ComboBox9'
+  end
+  object ComboBox10: TComboBox
+    Left = 85
+    Height = 23
+    Top = 312
+    Width = 100
+    ItemHeight = 15
+    OnChange = ComboBox10Change
+    TabOrder = 9
+    Text = 'ComboBox10'
+  end
+  object CheckBox1: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 18
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox1Change
+    TabOrder = 10
+  end
+  object CheckBox2: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 48
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox2Change
+    TabOrder = 11
+  end
+  object CheckBox3: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 81
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox3Change
+    TabOrder = 12
+  end
+  object CheckBox4: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 113
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox4Change
+    TabOrder = 13
+  end
+  object CheckBox5: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 146
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox5Change
+    TabOrder = 14
+  end
+  object CheckBox6: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 176
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox6Change
+    TabOrder = 15
+  end
+  object CheckBox7: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 213
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox7Change
+    TabOrder = 16
+  end
+  object CheckBox8: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 245
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox8Change
+    TabOrder = 17
+  end
+  object CheckBox9: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 277
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox9Change
+    TabOrder = 18
+  end
+  object CheckBox10: TCheckBox
+    Left = 208
+    Height = 19
+    Top = 312
+    Width = 54
+    Caption = 'Visible'
+    OnChange = CheckBox10Change
+    TabOrder = 19
+  end
+  object Button1: TButton
+    Left = 110
+    Height = 25
+    Top = 344
+    Width = 75
+    Caption = 'Reset'
+    OnClick = Button1Click
+    TabOrder = 20
+  end
+end

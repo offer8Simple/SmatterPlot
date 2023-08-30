@@ -181,6 +181,78 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit21"/>
       </Unit>
+      <Unit>
+        <Filename Value="unit22.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form22"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit22"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit23.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form23"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit23"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit24.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form24"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit24"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit25.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form25"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit25"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit26.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form26"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit26"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit27.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form27"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit27"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit28.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form28"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit28"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit29.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form29"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit29"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit30.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form30"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit30"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

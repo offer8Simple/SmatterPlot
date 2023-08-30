@@ -1,10 +1,13 @@
 object Form1: TForm1
-  Left = 415
+  Left = 30
   Height = 596
   Hint = 'This is a hint'
   Top = 145
   Width = 557
+  HorzScrollBar.Page = 544
+  VertScrollBar.Page = 560
   AllowDropFiles = True
+  AutoScroll = True
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   Caption = 'SmatterPlot'
   ClientHeight = 576
@@ -19,6 +22,7 @@ object Form1: TForm1
   Menu = MainMenu1
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
+  OnResize = FormResize
   ShowHint = True
   LCLVersion = '2.2.6.0'
   object PageControl1: TPageControl
@@ -26,10 +30,10 @@ object Form1: TForm1
     Height = 544
     Top = 16
     Width = 528
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Font.Color = clRed
     ParentFont = False
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Chart View'
@@ -85,25 +89,38 @@ object Form1: TForm1
         )
         Title.Visible = True
         OnAfterDraw = Chart1AfterDraw
-        Color = clCream
+        OnExtentChanged = Chart1ExtentChanged
+        OnFullExtentChanged = Chart1FullExtentChanged
+        Color = clWhite
       end
       object Button2: TButton
-        Left = 416
+        Left = 432
         Height = 25
-        Top = 8
-        Width = 75
+        Top = 0
+        Width = 78
         Caption = 'Formatter'
         OnClick = Button2Click
         TabOrder = 1
       end
-      object Button4: TButton
+      object Button5: TButton
         Left = 0
-        Height = 25
-        Top = 496
+        Height = 24
+        Top = 0
         Width = 75
-        Caption = 'Show MinY'
-        OnClick = Button4Click
+        Caption = 'Resize to Fit'
+        Color = clGreen
+        OnClick = Button5Click
         TabOrder = 2
+        Visible = False
+      end
+      object Button6: TButton
+        Left = 0
+        Height = 24
+        Top = 24
+        Width = 75
+        Caption = 'Keep Size'
+        OnClick = Button6Click
+        TabOrder = 3
       end
     end
     object TabSheet2: TTabSheet
@@ -115,16 +132,10 @@ object Form1: TForm1
         Height = 434
         Top = 48
         Width = 488
+        ColCount = 20
+        ExtendedSelect = False
+        RowCount = 1
         TabOrder = 0
-      end
-      object Button3: TButton
-        Left = 344
-        Height = 25
-        Top = 491
-        Width = 131
-        Caption = 'Add Memo to Table'
-        OnClick = Button3Click
-        TabOrder = 1
       end
       object Label1: TLabel
         Left = 38
@@ -150,12 +161,12 @@ object Form1: TForm1
         Font.Quality = fqDraft
         ItemHeight = 15
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
         Text = 'ComboBox1'
       end
     end
     object TabSheet3: TTabSheet
-      Caption = 'Source View'
+      Caption = 'Paste Pad'
       ClientHeight = 516
       ClientWidth = 520
       object Memo1: TMemo
@@ -169,37 +180,72 @@ object Form1: TForm1
         TabOrder = 0
       end
       object Button1: TButton
-        Left = 361
+        Left = 412
         Height = 25
-        Top = 489
-        Width = 75
-        Caption = 'Read Source'
+        Top = 488
+        Width = 100
+        Caption = 'Read Paste Pad'
+        OnClick = Button1Click
         TabOrder = 1
       end
+      object Button3: TButton
+        Left = 16
+        Height = 25
+        Top = 488
+        Width = 99
+        Caption = 'Clear Paste Pad'
+        OnClick = Button3Click
+        TabOrder = 2
+      end
     end
+  end
+  object Button4: TButton
+    Left = 240
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Update'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    OnClick = Button4Click
+    ParentFont = False
+    TabOrder = 1
   end
   object MainMenu1: TMainMenu
     Left = 11
     Top = 5
     object MenuItem1: TMenuItem
       Caption = 'File'
-      object MenuItem6: TMenuItem
-        Caption = 'New'
-        OnClick = MenuItem6Click
-      end
       object MenuItem2: TMenuItem
         Caption = 'Open ...'
         OnClick = MenuItem2Click
       end
-      object MenuItem3: TMenuItem
+      object MenuItem42: TMenuItem
         Caption = 'Save ...'
+        OnClick = MenuItem42Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Save Table ...'
         OnClick = MenuItem3Click
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'Export Image ...'
+        OnClick = MenuItem7Click
       end
       object MenuItem5: TMenuItem
         Caption = 'Close ...'
+        OnClick = MenuItem5Click
       end
-      object MenuItem7: TMenuItem
-        Caption = 'Export ...'
+      object MenuItem6: TMenuItem
+        Caption = 'New (Close All)'
+        OnClick = MenuItem6Click
+      end
+      object MenuItem43: TMenuItem
+        Caption = 'Quit'
+        OnClick = MenuItem43Click
       end
     end
     object MenuItem4: TMenuItem
@@ -209,25 +255,29 @@ object Form1: TForm1
         Caption = 'Format Chart ...'
         OnClick = MenuItem32Click
       end
+      object MenuItem39: TMenuItem
+        Caption = 'Resize Chart ...'
+        OnClick = MenuItem39Click
+      end
       object MenuItem14: TMenuItem
         Caption = 'Titles ...'
         OnClick = MenuItem14Click
-      end
-      object MenuItem15: TMenuItem
-        Caption = 'Ticks and Grids ...'
       end
       object MenuItem16: TMenuItem
         Caption = 'Series Colors ...'
         OnClick = MenuItem16Click
       end
       object MenuItem17: TMenuItem
-        Caption = 'Series Markers ...'
+        Caption = 'Series Symbols ...'
+        OnClick = MenuItem17Click
       end
       object MenuItem18: TMenuItem
         Caption = 'Series Lines ...'
+        OnClick = MenuItem18Click
       end
       object MenuItem19: TMenuItem
         Caption = 'X- and Y- Variables ...'
+        OnClick = MenuItem19Click
       end
       object MenuItem20: TMenuItem
         Caption = 'X-Scale: Linear'
@@ -239,48 +289,87 @@ object Form1: TForm1
       end
       object MenuItem22: TMenuItem
         Caption = 'Legend ...'
+        OnClick = MenuItem22Click
       end
     end
     object MenuItem8: TMenuItem
       Caption = 'Data'
+      object MenuItem34: TMenuItem
+        Caption = 'Sort Datasets ...'
+        OnClick = MenuItem34Click
+      end
+      object MenuItem38: TMenuItem
+        Caption = 'Sort Points within Datasets ...'
+        OnClick = MenuItem38Click
+      end
       object MenuItem23: TMenuItem
         Caption = 'Rename Datasets ...'
+        OnClick = MenuItem23Click
       end
       object MenuItem24: TMenuItem
         Caption = 'Combine Datasets ...'
+        OnClick = MenuItem24Click
       end
       object MenuItem25: TMenuItem
         Caption = 'Split Datasets ...'
+        OnClick = MenuItem25Click
       end
       object MenuItem26: TMenuItem
         Caption = 'Reduce Datasets ...'
+        OnClick = MenuItem26Click
       end
       object MenuItem27: TMenuItem
-        Caption = 'Interpolate/Extrapolate ...'
+        Caption = 'Interpolate/Extrapolate ... [future]'
       end
       object MenuItem28: TMenuItem
         Caption = 'Change Units ...'
+        OnClick = MenuItem28Click
       end
       object MenuItem29: TMenuItem
-        Caption = 'Add Variable ...'
+        Caption = 'Add Column ... [future]'
       end
       object MenuItem30: TMenuItem
-        Caption = 'Delete Variable ...'
+        Caption = 'Delete Column ... [future]'
+      end
+      object MenuItem44: TMenuItem
+        Caption = 'Separate Columns into Different Datasets ...'
+        OnClick = MenuItem44Click
+      end
+    end
+    object MenuItem15: TMenuItem
+      Caption = 'Math'
+      object MenuItem35: TMenuItem
+        Caption = 'Plot Equation ...'
+        OnClick = MenuItem35Click
+      end
+      object MenuItem36: TMenuItem
+        Caption = 'Fit Model ... [future]'
+        OnClick = MenuItem36Click
+      end
+      object MenuItem37: TMenuItem
+        Caption = 'Tranform Datasets ... [future]'
+      end
+      object MenuItem40: TMenuItem
+        Caption = 'Create Random Dataset ...'
+        OnClick = MenuItem40Click
+      end
+      object MenuItem41: TMenuItem
+        Caption = 'Descriptive Statistics ... [future]'
       end
     end
     object MenuItem9: TMenuItem
       Caption = 'Tools'
       object MenuItem31: TMenuItem
-        Caption = 'Settings ...'
+        Caption = 'Settings ... [Future]'
       end
     end
     object MenuItem10: TMenuItem
       Caption = 'Help'
       object MenuItem11: TMenuItem
-        Caption = 'Online Help ...'
+        Caption = 'Online Help ... [Future]'
       end
       object MenuItem12: TMenuItem
-        Caption = 'PDF Help ...'
+        Caption = 'PDF Help ... [Future]'
       end
       object Separator1: TMenuItem
         Caption = '-'
@@ -299,7 +388,7 @@ object Form1: TForm1
     end
   end
   object ChartAxisTransformations2: TChartAxisTransformations
-    Left = 8
+    Left = 160
     Top = 48
     object ChartAxisTransformations1LinearAxisTransform1: TLinearAxisTransform
     end
@@ -326,5 +415,17 @@ object Form1: TForm1
       ZoomFactor = 1.1
       ZoomRatio = 1.1
     end
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 320
+    Top = 451
+  end
+  object ListChartSource1: TListChartSource
+    Left = 189
+    Top = 325
+  end
+  object ListChartSource2: TListChartSource
+    Left = 287
+    Top = 327
   end
 end

@@ -1,10 +1,10 @@
 object Form2: TForm2
-  Left = 627
-  Height = 503
-  Top = 144
+  Left = 599
+  Height = 433
+  Top = 118
   Width = 359
   Caption = 'Format Chart'
-  ClientHeight = 503
+  ClientHeight = 433
   ClientWidth = 359
   Color = clSkyBlue
   OnCreate = FormCreate
@@ -247,6 +247,7 @@ object Form2: TForm2
     Width = 116
     Caption = 'Symbol Sequence'
     Color = clBlue
+    OnClick = BitBtn2Click
     TabOrder = 9
   end
   object Button1: TButton
@@ -366,6 +367,7 @@ object Form2: TForm2
     Width = 116
     Caption = 'Line Sequence'
     Color = clBlue
+    OnClick = BitBtn3Click
     TabOrder = 14
   end
   object ToggleBox7: TToggleBox
@@ -374,70 +376,54 @@ object Form2: TForm2
     Top = 80
     Width = 60
     Caption = 'Number Format'
+    OnChange = ToggleBox7Change
     OnClick = ToggleBox7Click
     TabOrder = 15
   end
-  object ColorBox1: TColorBox
-    Left = 17
-    Height = 22
-    Top = 376
-    Width = 128
-    DefaultColorColor = clSilver
-    Selected = clWhite
-    Color = clWhite
-    ItemHeight = 16
-    OnClick = ColorBox1Click
-    OnSelect = ColorBox1Select
+  object ToggleBox8: TToggleBox
+    Left = 292
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Select Variables'
+    OnChange = ToggleBox8Change
+    OnClick = ToggleBox8Click
     TabOrder = 16
   end
-  object ColorBox2: TColorBox
-    Left = 16
-    Height = 22
-    Top = 424
-    Width = 128
-    DefaultColorColor = clSilver
-    Selected = clWhite
-    Color = clCream
-    ItemHeight = 16
-    OnClick = ColorBox1Click
-    OnSelect = ColorBox2Select
+  object Button3: TButton
+    Left = 80
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Legend'
+    OnClick = Button3Click
     TabOrder = 17
   end
-  object Label1: TLabel
-    Left = 16
-    Height = 15
-    Top = 360
-    Width = 83
-    Caption = 'Plot Area Color:'
-    ParentColor = False
-  end
-  object Label2: TLabel
-    Left = 17
-    Height = 15
-    Top = 408
-    Width = 92
-    Caption = 'Chart Back Color:'
-    ParentColor = False
-  end
-  object ColorBox3: TColorBox
-    Left = 16
-    Height = 22
-    Top = 472
-    Width = 128
-    DefaultColorColor = clSilver
-    Selected = clWhite
-    Color = clCream
-    ItemHeight = 16
-    OnChange = ColorBox3Change
-    OnSelect = ColorBox3Select
+  object Button4: TButton
+    Left = 152
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Error Bars'
+    OnClick = Button4Click
     TabOrder = 18
   end
-  object Label3: TLabel
-    Left = 17
-    Height = 15
-    Top = 456
-    Width = 102
-    Caption = 'Legend Back Color:'
-    ParentColor = False
+  object ToggleBox10: TToggleBox
+    Left = 224
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Change Units'
+    OnChange = ToggleBox10Change
+    TabOrder = 19
+  end
+  object ToggleBox11: TToggleBox
+    Left = 8
+    Height = 60
+    Top = 363
+    Width = 59
+    Caption = 'More Colors'
+    OnChange = ToggleBox11Change
+    TabOrder = 20
   end
 end

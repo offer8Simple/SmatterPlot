@@ -1,10 +1,10 @@
 object Form6: TForm6
-  Left = 942
-  Height = 253
-  Top = 287
+  Left = 909
+  Height = 161
+  Top = 162
   Width = 320
   Caption = 'Number Formats'
-  ClientHeight = 253
+  ClientHeight = 161
   ClientWidth = 320
   Color = clSkyBlue
   LCLVersion = '2.2.6.0'
@@ -22,6 +22,7 @@ object Form6: TForm6
     Top = 12
     Width = 136
     ItemHeight = 15
+    OnChange = ComboBox1Change
     TabOrder = 0
     Text = 'ComboBox1'
   end
@@ -55,7 +56,7 @@ object Form6: TForm6
   object Label3: TLabel
     Left = 16
     Height = 15
-    Top = 120
+    Top = 88
     Width = 78
     Caption = 'X-Axis Format:'
     ParentColor = False
@@ -63,16 +64,17 @@ object Form6: TForm6
   object ComboBox2: TComboBox
     Left = 168
     Height = 23
-    Top = 120
+    Top = 88
     Width = 136
     ItemHeight = 15
+    OnChange = ComboBox2Change
     TabOrder = 3
     Text = 'ComboBox2'
   end
   object Label4: TLabel
     Left = 16
     Height = 15
-    Top = 148
+    Top = 116
     Width = 137
     Caption = 'Digits after Decimal Point:'
     ParentColor = False
@@ -80,7 +82,7 @@ object Form6: TForm6
   object Edit2: TEdit
     Left = 168
     Height = 23
-    Top = 148
+    Top = 116
     Width = 104
     OnChange = Edit2Change
     TabOrder = 4
@@ -89,69 +91,11 @@ object Form6: TForm6
   object UpDown2: TUpDown
     Left = 272
     Height = 23
-    Top = 148
+    Top = 116
     Width = 25
     Associate = Edit2
     Min = 0
     Position = 0
     TabOrder = 5
-  end
-  object Label5: TLabel
-    Left = 16
-    Height = 15
-    Top = 70
-    Width = 87
-    Caption = 'Interval Spacing:'
-    ParentColor = False
-  end
-  object Edit3: TEdit
-    Left = 168
-    Height = 23
-    Top = 70
-    Width = 104
-    OnChange = Edit3Change
-    TabOrder = 6
-    Text = 'Edit3'
-  end
-  object UpDown3: TUpDown
-    Left = 272
-    Height = 23
-    Top = 70
-    Width = 25
-    Associate = Edit3
-    Increment = 10
-    Max = 1000
-    Min = 0
-    Position = 0
-    TabOrder = 7
-  end
-  object Label6: TLabel
-    Left = 16
-    Height = 15
-    Top = 176
-    Width = 87
-    Caption = 'Interval Spacing:'
-    ParentColor = False
-  end
-  object Edit4: TEdit
-    Left = 168
-    Height = 23
-    Top = 176
-    Width = 104
-    OnChange = Edit4Change
-    TabOrder = 8
-    Text = 'Edit4'
-  end
-  object UpDown4: TUpDown
-    Left = 272
-    Height = 23
-    Top = 176
-    Width = 25
-    Associate = Edit4
-    Increment = 10
-    Max = 1000
-    Min = 0
-    Position = 0
-    TabOrder = 9
   end
 end

@@ -1,7 +1,7 @@
 object Form14: TForm14
-  Left = 954
+  Left = 896
   Height = 663
-  Top = 179
+  Top = 75
   Width = 320
   Caption = 'Error Bars'
   ClientHeight = 663
