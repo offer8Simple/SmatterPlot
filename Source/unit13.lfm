@@ -1,0 +1,215 @@
+object Form13: TForm13
+  Left = 392
+  Height = 297
+  Top = 465
+  Width = 434
+  Caption = 'Plot Equation'
+  ClientHeight = 297
+  ClientWidth = 434
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object ComboBox1: TComboBox
+    Left = 114
+    Height = 23
+    Top = 22
+    Width = 310
+    ItemHeight = 15
+    OnChange = ComboBox1Change
+    TabOrder = 0
+    Text = 'ComboBox1'
+  end
+  object Label1: TLabel
+    Left = 11
+    Height = 15
+    Top = 22
+    Width = 77
+    Caption = 'Equation Type:'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 114
+    Height = 23
+    Top = 56
+    Width = 310
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 15
+    Top = 56
+    Width = 81
+    Caption = 'Equation Form:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 19
+    Height = 15
+    Top = 128
+    Width = 15
+    Caption = 'a1:'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 19
+    Height = 15
+    Top = 156
+    Width = 15
+    Caption = 'a2:'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 19
+    Height = 15
+    Top = 184
+    Width = 15
+    Caption = 'a3:'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 19
+    Height = 15
+    Top = 216
+    Width = 15
+    Caption = 'a4:'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 19
+    Height = 15
+    Top = 248
+    Width = 15
+    Caption = 'a5:'
+    ParentColor = False
+  end
+  object Edit2: TEdit
+    Left = 59
+    Height = 23
+    Top = 128
+    Width = 80
+    TabOrder = 2
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 59
+    Height = 23
+    Top = 156
+    Width = 80
+    TabOrder = 3
+    Text = 'Edit3'
+  end
+  object Edit4: TEdit
+    Left = 59
+    Height = 23
+    Top = 184
+    Width = 80
+    TabOrder = 4
+    Text = 'Edit4'
+  end
+  object Edit5: TEdit
+    Left = 59
+    Height = 23
+    Top = 216
+    Width = 80
+    TabOrder = 5
+    Text = 'Edit5'
+  end
+  object Edit6: TEdit
+    Left = 59
+    Height = 23
+    Top = 248
+    Width = 80
+    TabOrder = 6
+    Text = 'Edit6'
+  end
+  object Label8: TLabel
+    Left = 11
+    Height = 15
+    Top = 104
+    Width = 93
+    Caption = 'Parameter Values:'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 256
+    Height = 72
+    Top = 215
+    Width = 83
+    Caption = 'Plot Equation'
+    OnClick = Button1Click
+    TabOrder = 7
+  end
+  object Label9: TLabel
+    Left = 168
+    Height = 15
+    Top = 104
+    Width = 96
+    Caption = 'Range of X Values:'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 168
+    Height = 15
+    Top = 128
+    Width = 24
+    Caption = 'Min:'
+    ParentColor = False
+  end
+  object Label11: TLabel
+    Left = 296
+    Height = 15
+    Top = 128
+    Width = 26
+    Caption = 'Max:'
+    ParentColor = False
+  end
+  object Edit7: TEdit
+    Left = 208
+    Height = 23
+    Top = 128
+    Width = 80
+    TabOrder = 8
+    Text = 'Edit7'
+  end
+  object Edit8: TEdit
+    Left = 336
+    Height = 23
+    Top = 128
+    Width = 80
+    TabOrder = 9
+    Text = 'Edit8'
+  end
+  object Label12: TLabel
+    Left = 168
+    Height = 15
+    Top = 160
+    Width = 97
+    Caption = 'Number of Points:'
+    ParentColor = False
+  end
+  object Edit9: TEdit
+    Left = 272
+    Height = 23
+    Top = 156
+    Width = 80
+    TabOrder = 10
+    Text = 'Edit9'
+  end
+  object Label13: TLabel
+    Left = 168
+    Height = 15
+    Top = 184
+    Width = 76
+    Caption = 'Point Spacing:'
+    ParentColor = False
+  end
+  object ComboBox2: TComboBox
+    Left = 256
+    Height = 23
+    Top = 188
+    Width = 160
+    ItemHeight = 15
+    TabOrder = 11
+    Text = 'ComboBox2'
+  end
+end

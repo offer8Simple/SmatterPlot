@@ -1,0 +1,71 @@
+object Form11: TForm11
+  Left = 76
+  Height = 296
+  Top = 294
+  Width = 320
+  Caption = 'Sort Datasets'
+  ClientHeight = 296
+  ClientWidth = 320
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object ListBox1: TListBox
+    Left = 20
+    Height = 184
+    Top = 27
+    Width = 252
+    ItemHeight = 0
+    TabOrder = 0
+  end
+  object Shape1: TShape
+    Left = 280
+    Height = 33
+    Hint = 'Move Up'
+    Top = 80
+    Width = 33
+    OnMouseDown = Shape1MouseDown
+    Shape = stTriangle
+  end
+  object Shape2: TShape
+    Left = 280
+    Height = 33
+    Hint = 'Move Down'
+    Top = 123
+    Width = 33
+    OnMouseDown = Shape2MouseDown
+    Shape = stTriangleDown
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 3
+    Width = 239
+    Caption = 'Rearrange Datasets with Up or Down Buttons.'
+    ParentColor = False
+  end
+  object ToggleBox1: TToggleBox
+    Left = 38
+    Height = 58
+    Top = 222
+    Width = 75
+    Caption = 'Sort Alphabetical'
+    OnClick = ToggleBox1Click
+    TabOrder = 1
+  end
+  object ToggleBox2: TToggleBox
+    Left = 128
+    Height = 58
+    Top = 222
+    Width = 75
+    Caption = 'Sort in Order Entered'
+    TabOrder = 2
+  end
+  object ToggleBox3: TToggleBox
+    Left = 216
+    Height = 58
+    Top = 224
+    Width = 75
+    Caption = 'Update Chart'
+    OnClick = ToggleBox3Click
+    TabOrder = 3
+  end
+end

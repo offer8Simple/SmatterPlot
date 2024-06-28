@@ -1,0 +1,429 @@
+object Form2: TForm2
+  Left = 599
+  Height = 433
+  Top = 118
+  Width = 359
+  Caption = 'Format Chart'
+  ClientHeight = 433
+  ClientWidth = 359
+  Color = clSkyBlue
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object ToggleBox1: TToggleBox
+    Left = 8
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Log X-axis'
+    OnChange = ToggleBox1Change
+    TabOrder = 0
+  end
+  object ToggleBox2: TToggleBox
+    Left = 8
+    Height = 60
+    Top = 8
+    Width = 60
+    Caption = 'Log Y-axis'
+    OnChange = ToggleBox2Change
+    OnClick = ToggleBox2Click
+    TabOrder = 1
+  end
+  object ToggleBox3: TToggleBox
+    Left = 80
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Grids X-axis'
+    OnChange = ToggleBox3Change
+    TabOrder = 2
+  end
+  object ToggleBox4: TToggleBox
+    Left = 80
+    Height = 60
+    Top = 8
+    Width = 60
+    Caption = 'Grids Y-axis'
+    OnChange = ToggleBox4Change
+    TabOrder = 3
+  end
+  object ToggleBox5: TToggleBox
+    Left = 152
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Minor Ticks X-axis'
+    OnChange = ToggleBox5Change
+    TabOrder = 4
+  end
+  object ToggleBox6: TToggleBox
+    Left = 152
+    Height = 60
+    Top = 8
+    Width = 60
+    Caption = 'Minor Ticks Y-axis'
+    OnChange = ToggleBox6Change
+    TabOrder = 5
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 0
+    Height = 153
+    Top = 152
+    Width = 112
+    AutoFill = True
+    Caption = 'Color Grouping'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 133
+    ClientWidth = 108
+    TabOrder = 6
+    object RadioButton1: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 0
+      Width = 96
+      Caption = 'No grouping'
+      Checked = True
+      OnChange = RadioButton1Change
+      TabOrder = 5
+      TabStop = True
+    end
+    object RadioButton2: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 19
+      Width = 96
+      Caption = 'Group by 2'
+      OnChange = RadioButton2Change
+      TabOrder = 0
+    end
+    object RadioButton3: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 38
+      Width = 96
+      Caption = 'Group by 3'
+      OnChange = RadioButton3Change
+      TabOrder = 1
+    end
+    object RadioButton4: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 57
+      Width = 96
+      Caption = 'Group by 4'
+      OnChange = RadioButton4Change
+      TabOrder = 2
+    end
+    object RadioButton5: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 76
+      Width = 96
+      Caption = 'Group by 5'
+      OnChange = RadioButton5Change
+      TabOrder = 3
+    end
+    object RadioButton6: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 95
+      Width = 96
+      Caption = 'Group by 6'
+      OnChange = RadioButton6Change
+      TabOrder = 4
+    end
+    object RadioButton19: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 114
+      Width = 96
+      Caption = 'All the same'
+      OnChange = RadioButton19Change
+      TabOrder = 6
+    end
+  end
+  object RadioGroup2: TRadioGroup
+    Left = 120
+    Height = 153
+    Top = 152
+    Width = 112
+    AutoFill = True
+    Caption = 'Symbol Grouping'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 133
+    ClientWidth = 108
+    TabOrder = 7
+    object RadioButton7: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 0
+      Width = 96
+      Caption = 'No grouping'
+      Checked = True
+      OnChange = RadioButton7Change
+      TabOrder = 5
+      TabStop = True
+    end
+    object RadioButton8: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 19
+      Width = 96
+      Caption = 'Group by 2'
+      OnChange = RadioButton8Change
+      TabOrder = 0
+    end
+    object RadioButton9: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 38
+      Width = 96
+      Caption = 'Group by 3'
+      OnChange = RadioButton9Change
+      TabOrder = 1
+    end
+    object RadioButton10: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 57
+      Width = 96
+      Caption = 'Group by 4'
+      OnChange = RadioButton10Change
+      TabOrder = 2
+    end
+    object RadioButton11: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 76
+      Width = 96
+      Caption = 'Group by 5'
+      OnChange = RadioButton11Change
+      TabOrder = 3
+    end
+    object RadioButton12: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 95
+      Width = 96
+      Caption = 'No Symbols'
+      OnChange = RadioButton12Change
+      TabOrder = 4
+    end
+    object RadioButton20: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 114
+      Width = 96
+      Caption = 'All the same'
+      OnChange = RadioButton20Change
+      TabOrder = 6
+    end
+  end
+  object BitBtn1: TBitBtn
+    Left = 8
+    Height = 31
+    Top = 320
+    Width = 104
+    Caption = 'Color Sequence'
+    Color = clLime
+    OnClick = BitBtn1Click
+    TabOrder = 8
+  end
+  object BitBtn2: TBitBtn
+    Left = 116
+    Height = 30
+    Top = 321
+    Width = 116
+    Caption = 'Symbol Sequence'
+    Color = clBlue
+    OnClick = BitBtn2Click
+    TabOrder = 9
+  end
+  object Button1: TButton
+    Left = 224
+    Height = 60
+    Top = 8
+    Width = 60
+    Caption = 'Titles'
+    OnClick = Button1Click
+    TabOrder = 10
+  end
+  object Button2: TButton
+    Left = 292
+    Height = 60
+    Top = 8
+    Width = 60
+    Caption = 'Sizes'
+    OnClick = Button2Click
+    TabOrder = 11
+  end
+  object Button6: TButton
+    Left = 224
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Scaling'
+    OnClick = Button6Click
+    TabOrder = 12
+  end
+  object RadioGroup3: TRadioGroup
+    Left = 240
+    Height = 153
+    Top = 152
+    Width = 112
+    AutoFill = True
+    Caption = 'Line Grouping'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 133
+    ClientWidth = 108
+    TabOrder = 13
+    object RadioButton13: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 0
+      Width = 96
+      Caption = 'No grouping'
+      OnChange = RadioButton13Change
+      TabOrder = 5
+    end
+    object RadioButton14: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 19
+      Width = 96
+      Caption = 'Group by 2'
+      OnChange = RadioButton14Change
+      TabOrder = 0
+    end
+    object RadioButton15: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 38
+      Width = 96
+      Caption = 'Group by 3'
+      OnChange = RadioButton15Change
+      TabOrder = 1
+    end
+    object RadioButton16: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 57
+      Width = 96
+      Caption = 'Group by 4'
+      OnChange = RadioButton16Change
+      TabOrder = 2
+    end
+    object RadioButton17: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 76
+      Width = 96
+      Caption = 'Group by 5'
+      OnChange = RadioButton17Change
+      TabOrder = 3
+    end
+    object RadioButton18: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 95
+      Width = 96
+      Caption = 'No Lines'
+      OnChange = RadioButton18Change
+      TabOrder = 4
+    end
+    object RadioButton21: TRadioButton
+      Left = 6
+      Height = 19
+      Top = 114
+      Width = 96
+      Caption = 'All the same'
+      Checked = True
+      OnChange = RadioButton21Change
+      TabOrder = 6
+      TabStop = True
+    end
+  end
+  object BitBtn3: TBitBtn
+    Left = 236
+    Height = 30
+    Top = 321
+    Width = 116
+    Caption = 'Line Sequence'
+    Color = clBlue
+    OnClick = BitBtn3Click
+    TabOrder = 14
+  end
+  object ToggleBox7: TToggleBox
+    Left = 292
+    Height = 60
+    Top = 80
+    Width = 60
+    Caption = 'Number Format'
+    OnChange = ToggleBox7Change
+    OnClick = ToggleBox7Click
+    TabOrder = 15
+  end
+  object ToggleBox8: TToggleBox
+    Left = 292
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Select Variables'
+    OnChange = ToggleBox8Change
+    OnClick = ToggleBox8Click
+    TabOrder = 16
+  end
+  object Button3: TButton
+    Left = 80
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Legend'
+    OnClick = Button3Click
+    TabOrder = 17
+  end
+  object Button4: TButton
+    Left = 152
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = '[Future]'
+    OnClick = Button4Click
+    TabOrder = 18
+  end
+  object ToggleBox10: TToggleBox
+    Left = 224
+    Height = 60
+    Top = 363
+    Width = 60
+    Caption = 'Change Units'
+    OnChange = ToggleBox10Change
+    TabOrder = 19
+  end
+  object ToggleBox11: TToggleBox
+    Left = 8
+    Height = 60
+    Top = 363
+    Width = 59
+    Caption = 'More Colors'
+    OnChange = ToggleBox11Change
+    TabOrder = 20
+  end
+end

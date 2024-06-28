@@ -1,0 +1,80 @@
+object Form21: TForm21
+  Left = 264
+  Height = 343
+  Top = 183
+  Width = 320
+  Caption = 'Tick Label Locations'
+  ClientHeight = 343
+  ClientWidth = 320
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 17
+    Height = 15
+    Top = 10
+    Width = 162
+    Caption = 'Edit Tick Mark Label Locations:'
+    ParentColor = False
+  end
+  object Memo1: TMemo
+    Left = 17
+    Height = 155
+    Top = 56
+    Width = 104
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+  end
+  object Memo2: TMemo
+    Left = 176
+    Height = 155
+    Top = 56
+    Width = 120
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 17
+    Height = 15
+    Top = 32
+    Width = 91
+    Caption = 'Y-Axis Locations:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 168
+    Height = 15
+    Top = 32
+    Width = 91
+    Caption = 'X-Axis Locations:'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 32
+    Height = 25
+    Top = 220
+    Width = 75
+    Caption = 'Auto'
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 192
+    Height = 25
+    Top = 220
+    Width = 75
+    Caption = 'Auto'
+    TabOrder = 3
+  end
+  object Button3: TButton
+    Left = 208
+    Height = 64
+    Top = 256
+    Width = 75
+    Caption = 'Update'
+    OnClick = Button3Click
+    TabOrder = 4
+  end
+end

@@ -1,0 +1,111 @@
+object Form10: TForm10
+  Left = 450
+  Height = 153
+  Top = 613
+  Width = 419
+  Caption = 'Legend Options'
+  ClientHeight = 153
+  ClientWidth = 419
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object Shape1: TShape
+    Left = 6
+    Height = 112
+    Top = 32
+    Width = 330
+  end
+  object CheckBox1: TCheckBox
+    Left = 115
+    Height = 19
+    Top = 8
+    Width = 91
+    Caption = 'Show Legend'
+    Checked = True
+    OnChange = CheckBox1Change
+    State = cbChecked
+    TabOrder = 0
+  end
+  object RadioButton1: TRadioButton
+    Left = 232
+    Height = 19
+    Top = 46
+    Width = 71
+    Caption = 'Top Right'
+    Checked = True
+    OnChange = RadioButton1Change
+    TabOrder = 8
+    TabStop = True
+  end
+  object RadioButton2: TRadioButton
+    Left = 232
+    Height = 19
+    Top = 80
+    Width = 86
+    Caption = 'Center Right'
+    OnChange = RadioButton2Change
+    TabOrder = 1
+  end
+  object RadioButton3: TRadioButton
+    Left = 232
+    Height = 19
+    Top = 112
+    Width = 91
+    Caption = 'Bottom Right'
+    OnChange = RadioButton3Change
+    TabOrder = 2
+  end
+  object RadioButton4: TRadioButton
+    Left = 120
+    Height = 19
+    Top = 112
+    Width = 98
+    Caption = 'Center Bottom'
+    OnChange = RadioButton4Change
+    TabOrder = 3
+  end
+  object RadioButton5: TRadioButton
+    Left = 8
+    Height = 19
+    Top = 112
+    Width = 83
+    Caption = 'Bottom Left'
+    OnChange = RadioButton5Change
+    TabOrder = 7
+  end
+  object RadioButton6: TRadioButton
+    Left = 8
+    Height = 19
+    Top = 80
+    Width = 78
+    Caption = 'Center Left'
+    OnChange = RadioButton6Change
+    TabOrder = 4
+  end
+  object RadioButton7: TRadioButton
+    Left = 8
+    Height = 19
+    Top = 46
+    Width = 63
+    Caption = 'Top Left'
+    OnChange = RadioButton7Change
+    TabOrder = 5
+  end
+  object RadioButton8: TRadioButton
+    Left = 120
+    Height = 19
+    Top = 46
+    Width = 78
+    Caption = 'Center Top'
+    OnChange = RadioButton8Change
+    TabOrder = 6
+  end
+  object CheckBox2: TCheckBox
+    Left = 351
+    Height = 19
+    Top = 80
+    Width = 59
+    Caption = 'Sidebar'
+    OnChange = CheckBox2Change
+    TabOrder = 9
+  end
+end

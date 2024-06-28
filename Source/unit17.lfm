@@ -1,0 +1,37 @@
+object Form17: TForm17
+  Left = 52
+  Height = 287
+  Top = 412
+  Width = 320
+  Caption = 'Combine Datasets'
+  ClientHeight = 287
+  ClientWidth = 320
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object ListBox1: TListBox
+    Left = 20
+    Height = 184
+    Top = 27
+    Width = 284
+    ItemHeight = 0
+    MultiSelect = True
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 3
+    Width = 147
+    Caption = 'Select Datasets to Combine:'
+    ParentColor = False
+  end
+  object ToggleBox3: TToggleBox
+    Left = 197
+    Height = 58
+    Top = 216
+    Width = 75
+    Caption = 'Combine'
+    OnChange = ToggleBox3Change
+    TabOrder = 1
+  end
+end

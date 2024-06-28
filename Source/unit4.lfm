@@ -1,0 +1,191 @@
+object Form4: TForm4
+  Left = 354
+  Height = 373
+  Top = 396
+  Width = 286
+  Caption = 'Color Sequence Form'
+  ClientHeight = 373
+  ClientWidth = 286
+  Color = clSkyBlue
+  OnActivate = FormActivate
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 11
+    Width = 36
+    Caption = 'Series1'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Top = 48
+    Width = 36
+    Caption = 'Series2'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 80
+    Width = 36
+    Caption = 'Series3'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 15
+    Top = 112
+    Width = 36
+    Caption = 'Series4'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 15
+    Top = 145
+    Width = 36
+    Caption = 'Series5'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 16
+    Height = 15
+    Top = 176
+    Width = 36
+    Caption = 'Series6'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 16
+    Height = 15
+    Top = 208
+    Width = 36
+    Caption = 'Series7'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 16
+    Height = 15
+    Top = 240
+    Width = 36
+    Caption = 'Series8'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 16
+    Height = 15
+    Top = 272
+    Width = 36
+    Caption = 'Series9'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 16
+    Height = 15
+    Top = 304
+    Width = 42
+    Caption = 'Series10'
+    ParentColor = False
+  end
+  object ColorBox1: TColorBox
+    Left = 88
+    Height = 22
+    Top = 11
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox1Change
+    TabOrder = 0
+  end
+  object ColorBox2: TColorBox
+    Left = 88
+    Height = 22
+    Top = 48
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox2Change
+    TabOrder = 1
+  end
+  object ColorBox3: TColorBox
+    Left = 88
+    Height = 22
+    Top = 80
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox3Change
+    TabOrder = 2
+  end
+  object ColorBox4: TColorBox
+    Left = 88
+    Height = 22
+    Top = 112
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox4Change
+    TabOrder = 3
+  end
+  object ColorBox5: TColorBox
+    Left = 88
+    Height = 22
+    Top = 145
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox5Change
+    TabOrder = 4
+  end
+  object ColorBox6: TColorBox
+    Left = 88
+    Height = 22
+    Top = 176
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox6Change
+    TabOrder = 5
+  end
+  object ColorBox7: TColorBox
+    Left = 88
+    Height = 22
+    Top = 208
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox7Change
+    TabOrder = 6
+  end
+  object ColorBox8: TColorBox
+    Left = 88
+    Height = 22
+    Top = 240
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox8Change
+    TabOrder = 7
+  end
+  object ColorBox9: TColorBox
+    Left = 88
+    Height = 22
+    Top = 272
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox9Change
+    TabOrder = 8
+  end
+  object ColorBox10: TColorBox
+    Left = 88
+    Height = 22
+    Top = 304
+    Width = 156
+    ItemHeight = 16
+    OnChange = ColorBox10Change
+    TabOrder = 9
+  end
+  object Button1: TButton
+    Left = 109
+    Height = 25
+    Top = 344
+    Width = 75
+    Caption = 'Reset'
+    OnClick = Button1Click
+    TabOrder = 10
+  end
+end
