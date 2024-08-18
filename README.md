@@ -8,16 +8,16 @@ Installation:
 To install SmatterPlot for Windows, go to the "Windows Installer" folder above and download the file "SmatterPlot.exe".  Once downloaded, execute this file from your download folder by double-clicking it.  Follow the prompts to install the software.  After installation you may start the software which typically will be accessible from a shortcut on the desktop.
 
 Under Development:
-SmatterPlot is not quite complete -- I'm still working on it, but it is stable and functional.  Yyou are welcome to try it out now.
+SmatterPlot is not quite complete -- I'm still working on it, but it is stable and functional.  You are welcome to try it out now.
 
 
 
 Current features include:
 
-Instant chart with drag-and-drop or copy-and-paste.
-AI-based chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
-Instant title, axis and series labelling based on context.
-Instant overlay of multiple datasets.
+*Instant chart with drag-and-drop or copy-and-paste.
+*AI-based chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
+*Instant title, axis and series labelling based on context.
+*Instant overlay of multiple datasets.
 Open data from a wide range of formats (.xlsx, .csv, .txt, etc.)
 Generate charts in a wide range of image formats (.png, .jpg, etc.)
 Export to Excel with a customized chart.
