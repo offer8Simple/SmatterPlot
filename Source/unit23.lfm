@@ -1,7 +1,7 @@
 object Form23: TForm23
-  Left = 939
+  Left = 359
   Height = 372
-  Top = 395
+  Top = 491
   Width = 288
   Caption = 'Line Sequence'
   ClientHeight = 372

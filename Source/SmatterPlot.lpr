@@ -13,7 +13,8 @@ uses
   Forms, tachartlazaruspkg, Unit1, Unit2, Unit3, Unit4, Unit5, Unit6, Unit7,
   Unit8, Unit9, Unit10, Unit11, Unit12, Unit13, Unit14, Unit15, Unit16, Unit17,
   Unit18, Unit19, Unit20, Unit21, Unit22, Unit23, Unit24, Unit25, Unit26,
-  Unit27, Unit28, Unit29, Unit30
+  Unit27, Unit28, Unit29, Unit30, Unit31, Unit32, Unit33, abbrevia, Unit34,
+  Unit35
   { you can add units after this };
 
 {$R *.res}
@@ -52,6 +53,11 @@ begin
   Application.CreateForm(TForm28, Form28);
   Application.CreateForm(TForm29, Form29);
   Application.CreateForm(TForm30, Form30);
+  Application.CreateForm(TForm31, Form31);
+  Application.CreateForm(TForm32, Form32);
+  Application.CreateForm(TForm33, Form33);
+  Application.CreateForm(TForm34, Form34);
+  Application.CreateForm(TForm35, Form35);
   Application.Run;
 end.
 

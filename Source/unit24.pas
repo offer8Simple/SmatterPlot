@@ -288,7 +288,7 @@ begin
          myYAxisTitle:= newname;
       end;
 
-      Form1.Button4.Click;
+      Form1.RebuildChart();
       Form24.Hide;
 end;
 

@@ -1,7 +1,7 @@
 object Form28: TForm28
-  Left = 583
+  Left = 294
   Height = 296
-  Top = 487
+  Top = 512
   Width = 433
   Caption = 'Create Random Dataset'
   ClientHeight = 296

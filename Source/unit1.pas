@@ -12,8 +12,9 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   ComCtrls, Menus, ExtDlgs, TAGraph, TATypes, TASeries, LCLType,
   TATransformations, Clipbrd, Grids, Buttons, TADrawUtils, TATools, TASources,
-  math, TAChartUtils, TAGeometry, BGRABitmap, BGRABitmapTypes, BGRASVG;
-  //TAChart?
+  math, TAChartUtils, TAGeometry, BGRABitmap, BGRABitmapTypes, BGRASVG, LCLIntf,
+  fpspreadsheet, xlsbiff8, fpsallformats;
+
 
 var
   mycolors: array of TColor;
@@ -65,6 +66,11 @@ var
   mySizeLocked: boolean;
   YTickNum: integer;
   XTickNum: integer;
+  defaultfolder: String;
+  ExecutablePath: String;
+  UserDir: String;
+  excelname: String;
+  scriptname: String;
 
 
 
@@ -76,9 +82,7 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
-    Button2: TButton;
     Button3: TButton;
-    Button4: TButton;
     Button5: TButton;
     Button6: TButton;
     Chart1: TChart;
@@ -90,13 +94,16 @@ type
     ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool;
     ComboBox1: TComboBox;
     Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
     Label1: TLabel;
     ListChartSource2: TListChartSource;
     MainMenu1: TMainMenu;
     Memo1: TMemo;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
-    MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
@@ -117,7 +124,6 @@ type
     MenuItem28: TMenuItem;
     MenuItem29: TMenuItem;
     MenuItem3: TMenuItem;
-    MenuItem30: TMenuItem;
     MenuItem31: TMenuItem;
     MenuItem32: TMenuItem;
     MenuItem33: TMenuItem;
@@ -135,6 +141,7 @@ type
     MenuItem44: TMenuItem;
     MenuItem45: TMenuItem;
     MenuItem46: TMenuItem;
+    MenuItem47: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -142,6 +149,8 @@ type
     MenuItem9: TMenuItem;
     OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
+    Panel1: TPanel;
+    Panel2: TPanel;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
     SavePictureDialog1: TSavePictureDialog;
@@ -152,17 +161,24 @@ type
     TabSheet3: TTabSheet;
     ListChartSource1: TListChartSource;
 
-    procedure Button2Click(Sender: TObject);
+
     procedure Button3Click(Sender: TObject);
 
-    procedure Button4Click(Sender: TObject);
+
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Chart1AfterDraw(ASender: TChart; ADrawer: IChartDrawer);
     procedure Chart1ExtentChanged(ASender: TChart);
     procedure Chart1FullExtentChanged(ASender: TChart);
     procedure FormResize(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
     procedure Label2SizeConstraintsChange(Sender: TObject);
+    procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem14Click(Sender: TObject);
     procedure MenuItem16Click(Sender: TObject);
@@ -176,16 +192,21 @@ type
     procedure MenuItem24Click(Sender: TObject);
     procedure MenuItem25Click(Sender: TObject);
     procedure MenuItem26Click(Sender: TObject);
+    procedure MenuItem27Click(Sender: TObject);
     procedure MenuItem28Click(Sender: TObject);
+    procedure MenuItem29Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem31Click(Sender: TObject);
     procedure MenuItem32Click(Sender: TObject);
     procedure MenuItem34Click(Sender: TObject);
     procedure MenuItem35Click(Sender: TObject);
     procedure MenuItem36Click(Sender: TObject);
+    procedure MenuItem37Click(Sender: TObject);
     procedure MenuItem38Click(Sender: TObject);
     procedure MenuItem39Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem40Click(Sender: TObject);
+    procedure MenuItem41Click(Sender: TObject);
     procedure MenuItem42Click(Sender: TObject);
     procedure MenuItem43Click(Sender: TObject);
     procedure MenuItem44Click(Sender: TObject);
@@ -196,7 +217,6 @@ type
     procedure MenuItem6Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
 
-    //procedure OpenMyFiles2(Sender: TObject; FileName: String);
     procedure OpenMyFiles3(Sender: TObject; FileName: String);
     procedure RebuildChart();
 
@@ -231,7 +251,7 @@ implementation
 uses
   unit2, unit3, unit4, Unit7, Unit8, Unit9, unit10, Unit11, Unit12, Unit13, Unit14,
   Unit15, Unit17, Unit18, Unit19, Unit20, Unit22, Unit23, Unit24, Unit25, Unit28,
-  Unit29, Unit30;
+  Unit29, Unit30, Unit31, Unit32, Unit33, Unit34, Unit35;
 
 {$R *.lfm}
 
@@ -267,9 +287,12 @@ begin
   //clear chart and repopulate it with all the data in StringGrid1
     Form1.Chart1.Visible:= True;
     Form1.Image1.Visible:= False;
-    Form1.Button2.BringToFront;
-    Form1.Button5.BringToFront;
-    Form1.Button6.BringToFront;
+    //Form1.Button5.BringToFront;
+    //Form1.Button6.BringToFront;
+    Form1.Panel1.BringToFront;
+    Form1.Panel2.BringToFront;
+    Form1.Panel1.Visible:= True;
+
 
     ymidmarks:= [0,0,0,0,0,0,0,0,0,0,
                 0,0,0,0,0,0,0,0,0,0,
@@ -814,10 +837,17 @@ var
   mypos: integer;
   slashpos: integer;
   noslashstr: String;
+  myWorkbook: TsWorkbook;
+  myWorksheet: TsWorksheet;
+  myRow: integer;
+  myCol: integer;
+  mystr: String;
+
 
 begin
      //open a file and store data in Paste Pad only -- no table, no chart yet
     Form1.Memo1.Clear;
+    myStringList.Clear;
 
     if pos('\', FileName) > 0 then
        begin
@@ -831,7 +861,27 @@ begin
        end;
     Form1.Memo1.Lines.Add('<' + noslashstr + '>');
     myfile :=FileName;
-    myStringList.LoadfromFile(myfile);
+
+    //check if file is excel workbook
+    if (pos('.xls', FileName) > 0) or (pos('.ods', FileName) >0) then
+    begin
+       myWorkbook:= TsWorkbook.create;
+       myWorkbook.ReadFromFile(FileName);
+       myWorksheet:= myWorkbook.GetWorksheetByIndex(0);
+       for myRow:= 0 to myWorksheet.GetLastRowIndex do
+       begin
+         mystr:= '';
+         for myCol:= 0 to myWorksheet.GetLastColIndex do
+         begin
+              mystr:= mystr+myWorksheet.ReadAsText(myWorksheet.FindCell(myRow, myCol)) + #9;
+         end;
+         myStringList.Add(mystr);
+       end;
+       myWorkbook.Free;
+       //ShowMessage('Opened as Excel Workbook');
+    end
+    else    // open like textfile
+       myStringList.LoadfromFile(myfile);
 
     // read rows
     for i := 0 to myStringList.count -1 do
@@ -864,6 +914,7 @@ end;
 procedure TForm1.MenuItem2Click(Sender: TObject);
 begin
   // Open Selected
+  OpenDialog1.InitialDir:=defaultfolder;
   if OpenDialog1.Execute then
     begin
       if fileExists(OpenDialog1.Filename) then
@@ -873,6 +924,31 @@ begin
     end
   else
     ShowMessage('No file selected');
+end;
+
+procedure TForm1.MenuItem31Click(Sender: TObject);
+begin
+  // Click to open Settings
+  Form35.Edit1.Caption:= defaultfolder;
+  Form35.Edit2.Caption:= excelname;
+  Form35.Edit3.Caption:= scriptname;
+  Form35.Edit4.Caption:= myChartTitle;
+  Form35.Edit5.Caption:= myYAxisTitle;
+  Form35.Edit6.Caption:= myXAxisTitle;
+  Form35.Edit7.Caption:= InttoStr(myChartTitleFontSize);
+  Form35.Edit8.Caption:= InttoStr(myYAxisTitleFontSize);
+  Form35.Edit9.Caption:= InttoStr(myXAxisTitleFontSize);
+  Form35.Edit10.Caption:= InttoStr(myYMarkFontSize);
+  Form35.Edit11.Caption:= InttoStr(myXMarkFontSize);
+  Form35.Edit12.Caption:= InttoStr(myLegendFontSize);
+  Form35.Edit13.Caption:= InttoStr(myChartHeight);
+  Form35.Edit14.Caption:= InttoStr(myChartWidth);
+  Form35.Edit15.Caption:= myYNumberFormat;
+  Form35.Edit16.Caption:= myXNumberFormat;
+  Form35.Edit17.Caption:= '---';
+
+  Form35.Show;
+
 end;
 
 procedure TForm1.MenuItem32Click(Sender: TObject);
@@ -960,14 +1036,24 @@ begin
   Form30.Combobox1.Items.Add('Cubic');
   Form30.Combobox1.Items.Add('Polynomial (4th power)');
   Form30.Combobox1.Items.Add('Exponential');
-  Form30.Combobox1.Items.Add('Logarhithmic');
+  Form30.Combobox1.Items.Add('Logarhithmic(Natural)');
+  Form30.Combobox1.Items.Add('Logarhithmic(Base10)');
   Form30.Combobox1.Items.Add('Power Law');
-  Form30.Combobox1.Items.Add('Arhenius');
-  Form30.Combobox1.Items.Add('Langmuir');
+  Form30.Combobox1.Items.Add('Arrhenius Equation');
+  Form30.Combobox1.Items.Add('[---- more models ----]');
+  Form30.Combobox1.Items.Add('Power Law for Viscosity');
+  Form30.Combobox1.Items.Add('Bingham Model for Viscosity');
+  Form30.Combobox1.Items.Add('Briant Model for Viscosity');
+  Form30.Combobox1.Items.Add('Carreau-Yasuda Model for Viscosity');
+  Form30.Combobox1.Items.Add('Casson Model for Viscosity');
+  Form30.Combobox1.Items.Add('Gauss Distribution');
+  Form30.Combobox1.Items.Add('Gompertz Sigmoid');
+  Form30.Combobox1.Items.Add('Herschel-Bulkley Model for Viscosity');
+
   Form30.ComboBox1.AutoSelected:=true;
   Form30.ComboBox1.Caption:= 'Linear';
+  form30.Image1.Picture.LoadFromFile('linear.png');
 
-  Form30.Edit1.Caption:='y=a1+a2*x';
   Form30.Edit2.Caption:='1';
   Form30.Edit3.Caption:='1';
   Form30.Edit4.Caption:='0';
@@ -978,8 +1064,35 @@ begin
   Form30.Edit9.Caption:='50';
   Form30.Edit10.Caption:='100';
   Form30.Memo1.Clear;
-  Form30.CheckBox1.Checked:=true;
-  Form30.CheckBox2.Checked:=true;
+  Form30.Edit2.Caption:='1';
+  Form30.Edit3.Caption:='1';
+  Form30.Edit4.Caption:='0';
+  Form30.Edit5.Caption:='0';
+  Form30.Edit6.Caption:='0';
+  Form30.Edit2.Visible:=true;
+  Form30.Edit3.Visible:=true;
+  Form30.Edit4.Visible:=false;
+  Form30.Edit5.Visible:=false;
+  Form30.Edit6.Visible:=false;
+  Form30.Checkbox1.Checked:=true;
+  Form30.Checkbox2.Checked:=true;
+  Form30.Checkbox3.Checked:=false;
+  Form30.Checkbox4.Checked:=false;
+  Form30.Checkbox5.Checked:=false;
+  Form30.Checkbox1.Visible:=true;
+  Form30.Checkbox2.Visible:=true;
+  Form30.Checkbox3.Visible:=false;
+  Form30.Checkbox4.Visible:=false;
+  Form30.Checkbox5.Visible:=false;
+  Form30.Memo1.Clear;
+  Form30.Memo1.Lines.Add('Linear Model');
+  Form30.Memo1.Lines.Add('y=a1+a2*x');
+  Form30.Memo1.Lines.Add('a1: intercept');
+  Form30.Memo1.Lines.Add('a2: slope');
+  Form30.Memo1.Lines.Add('Solve using Linear Least Squares');
+  Form30.Image1.Picture.LoadFromFile('linear.png');
+  Form30.HideSearchBoxes();
+
 
   // get current zoom scaling and set at X range default
   if Form1.Chart1.BottomAxis.Transformations=Form1.ChartAxisTransformations1 then
@@ -995,6 +1108,33 @@ begin
 
   Form30.Show;
 end;
+
+procedure TForm1.MenuItem37Click(Sender: TObject);
+var
+  i: longint;
+
+
+begin
+  // Transform datasets
+  // create a new variable (a new column) computed from existing columns
+  Form31.Combobox1.Clear;
+  Form31.Combobox2.Clear;
+  For i:= 3 to StringGrid1.ColCount -1 do
+     Form31.ComboBox1.Items.Add(StringGrid1.Cells[i,0]);
+
+  Form31.ComboBox2.Items.Add('[Value]');
+  For i:= 3 to StringGrid1.ColCount -1 do
+     Form31.ComboBox2.Items.Add(StringGrid1.Cells[i,0]);
+  Form31.ComboBox2.Caption:= '[Value]';
+  Form31.Edit1.Caption:= '0.0';
+  Form31.RadioButton1.Checked:=true;
+  Form31.Show;
+
+end;
+
+
+
+
 
 procedure TForm1.MenuItem38Click(Sender: TObject);
 var
@@ -1071,6 +1211,40 @@ begin
 
 end;
 
+procedure TForm1.MenuItem41Click(Sender: TObject);
+var
+  i: longint;
+  olddataset: integer;
+
+begin
+  // go to Descriptive Statistics Form
+  Form32.Combobox1.Clear;
+  Form32.Combobox2.Clear;
+  Form32.Memo1.Clear;
+  Form32.ComboBox1.Caption := Form1.StringGrid1.Cells[2,1];
+  Form32.ComboBox2.Caption := Form1.StringGrid1.Cells[ycol,0];
+
+  for i:= 3 to Form1.StringGrid1.ColCount-1 do
+  begin
+      Form32.ComboBox2.Items.Add(Form1.StringGrid1.Cells[i,0]);
+  end;
+
+  olddataset:= StrtoInt(Form1.StringGrid1.Cells[1,1]);
+  Form32.ComboBox1.Items.Add(StringGrid1.Cells[2,1]);
+  for i:= 1 to Form1.StringGrid1.RowCount-1 do
+  begin
+    if StrtoInt(Form1.StringGrid1.Cells[1,i]) <> olddataset then
+    begin
+       Form32.ComboBox1.Items.Add(StringGrid1.Cells[2,i]);
+       olddataset:= StrtoInt(Form1.StringGrid1.Cells[1,i]);
+    end;
+  end;
+  Form32.ComboBox1.Items.Add('[All]');
+  Form32.ComboBox2.Items.Add('[All]');
+  Form32.Show;
+
+end;
+
 procedure TForm1.MenuItem42Click(Sender: TObject);
 var
   i: integer;
@@ -1090,7 +1264,7 @@ begin
       thefile:= SaveDialog1.FileName;
       F:= TFileStream.Create(thefile, fmCreate);
       myheader:= '<SmatterPlot v1.0>' + LineEnding;
-      myheader:=myheader +'HeaderRowPresent=True'+ LineEnding;
+      myheader:=myheader +'HeaderRowPresent:=True'+ LineEnding;
       myheader:=myheader +'HeaderRow:=27'+ LineEnding;
       myheader:=myheader +'myChartTitle:='+myChartTitle+ LineEnding;
       myheader:=myheader +'myYAxisTitle:='+myYAxisTitle+ LineEnding;
@@ -1337,6 +1511,7 @@ begin
 
   Form18.ComboBox3.Items.Add('Less than / greater than value');
   Form18.ComboBox3.Items.Add('Category Column');
+  Form18.ComboBox3.Items.Add('Within Zoom Window');
 
   Form18.Show;
 end;
@@ -1391,6 +1566,18 @@ begin
 
 end;
 
+procedure TForm1.MenuItem27Click(Sender: TObject);
+begin
+  // click Export to Excel
+  Form33.Edit1.Caption:= defaultfolder;
+  Form33.Edit2.Caption:= 'SP-output.xlsx';
+  Form33.Checkbox1.Checked:= true;
+  Form33.Checkbox2.Checked:= true;
+  Form33.Checkbox3.Checked:= true;
+  Form33.Show;
+
+end;
+
 procedure TForm1.MenuItem28Click(Sender: TObject);
 var
   i: integer;
@@ -1405,6 +1592,19 @@ begin
      Form24.ComboBox1.Items.Add(StringGrid1.Cells[i,0]);
 
   Form24.Show;
+
+end;
+
+procedure TForm1.MenuItem29Click(Sender: TObject);
+begin
+  // Export to Python/Matplotlib
+    // click Export to Excel
+  Form34.Edit1.Caption:= defaultfolder;
+  Form34.Edit2.Caption:= 'SP-output.xlsx';
+  Form34.Edit3.Caption:= 'SP-script.py';
+  Form34.Checkbox1.Checked:= true;
+
+  Form34.show;
 
 end;
 
@@ -1447,6 +1647,8 @@ begin
   Form9.ComboBox2.Caption := Form1.StringGrid1.Cells[xcol,0];
 
   //ShowMessage(InttoStr(Form1.StringGrid1.ColCount-1));
+  Form9.ComboBox1.Items.Add(Form1.StringGrid1.Cells[0,0]);
+  Form9.ComboBox2.Items.Add(Form1.StringGrid1.Cells[0,0]);
   for i:= 3 to Form1.StringGrid1.ColCount-1 do
   begin
       Form9.ComboBox1.Items.Add(Form1.StringGrid1.Cells[i,0]);
@@ -1457,12 +1659,7 @@ begin
 
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-  // Formatter Button Click
-  Form2.Show;
 
-end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
@@ -1473,13 +1670,7 @@ end;
 
 
 
-procedure TForm1.Button4Click(Sender: TObject);
 
-begin
-  // click button to update chart
-  RebuildChart();
-
-end;
 
 procedure TForm1.Button5Click(Sender: TObject);
 begin
@@ -1548,15 +1739,73 @@ begin
   // On resize -- adjust Pagecontrol and Tab sheet sizes
   Form1.PageControl1.Height:= Form1.Height - 24;
   Form1.PageControl1.Width:= Form1.Width - 29;
-  Form1.Button5.Visible:= True;
-  Form1.Button6.Visible:= True;
+  //Form1.Button5.Visible:= True;
+  //Form1.Button6.Visible:= True;
+  Form1.Panel2.Visible:= True;
+  Form1.Image4.Visible:= True;
+  Form1.Image5.Visible:= True;
+
+end;
+
+procedure TForm1.Image1Click(Sender: TObject);
+begin
+   // Click on Start Image
+  ShowMessage('Add some data here to make a chart!');
+
+end;
 
 
+
+procedure TForm1.Image2Click(Sender: TObject);
+begin
+  // Click UpdateImageButton
+  RebuildChart();
+
+end;
+
+procedure TForm1.Image3Click(Sender: TObject);
+begin
+    // Formatter ImageButton Click
+  Form2.Show;
+end;
+
+procedure TForm1.Image4Click(Sender: TObject);
+begin
+  // Click on Resize-to-Fit Image Button
+  // Resize Chart to Fit Window
+
+  Form1.Button5.Visible:= False;
+  Form1.Button6.Visible:= False;
+  Form1.Image4.Visible:= False;
+  Form1.Image5.Visible:= False;
+  Form1.Chart1.Height:= Form1.PageControl1.Height - 60;
+  Form1.Chart1.Width:= Form1.PageControl1.Width - 60;
+  myChartHeight:= Form1.PageControl1.Height - 60;
+  myChartWidth:= Form1.PageControl1.Width - 60;
+  Form1.Panel2.Visible:= False;
+
+end;
+
+procedure TForm1.Image5Click(Sender: TObject);
+begin
+     // click keep size
+    Form1.Button5.Visible:= False;
+    Form1.Button6.Visible:= False;
+    Form1.Image4.Visible:= False;
+    Form1.Image5.Visible:= False;
+    Form1.Panel2.Visible:= False;
 end;
 
 procedure TForm1.Label2SizeConstraintsChange(Sender: TObject);
 begin
 
+
+end;
+
+procedure TForm1.MenuItem12Click(Sender: TObject);
+begin
+  // click PDF help
+  OpenDocument('SmatterPlot Documentation.pdf');
 
 end;
 
@@ -1630,6 +1879,15 @@ end;
 
 
 
+
+
+
+
+
+
+
+
+//#################################################################
 procedure TForm1.Button1Click(Sender: TObject);
 // Read memo data into table and chart
 var
@@ -1653,12 +1911,21 @@ var
   firstdatarow: longint;
   SPfile: boolean;
   myHeaderRow: integer;
+  nextchunk: String;
+  numberchr: Array of String;
+  chrisanumber: boolean;
+  chunkisanumber: boolean;
+  nonumbercolumn: boolean;
+  kk: integer;
+  mm: integer;
+  nn: integer;
 
 begin
     // check for tags
     datasetname:= 'paste';
     firstdatarow:= 1;
-    hrnum:=1; // one header row
+    numberchr:= [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'e', '-', '+' ];
+    hrnum:=1; // one header row assume for now
     SPfile:=false;
     if Form1.Memo1.Lines[0].Chars[0] = '<' then
     begin
@@ -1672,7 +1939,7 @@ begin
        begin
           if Form1.Memo1.Lines[i].Chars[0] = '<' then
              firstdatarow:= i+1+hrnum;
-          if Form1.Memo1.Lines[i]='HeaderRowPresent=False' then
+          if Form1.Memo1.Lines[i]='HeaderRowPresent:=False' then
           begin
                hrnum:=0;
                firstdatarow:=i+1+hrnum;
@@ -1731,12 +1998,52 @@ begin
          mypos:= pos(mydelimstr, mystr);
          mystr:=Copy(mystr,mypos+1);
          j:=j+1;
+       end;              // j = number of columns in source
+
+
+       // check for header row
+       mystr:= Form1.Memo1.Lines[firstdatarow-hrnum];
+       for k:= 1 to j do
+       begin
+         mypos:= pos(mydelimstr, mystr);
+         if mypos<1 then
+            nextchunk:=mystr
+         else
+            nextchunk:=Copy(mystr,1,mypos-1);
+         //ShowMessage(nextchunk);
+         if Length(nextchunk) > 0 then
+            chunkisanumber:= true
+         else
+            chunkisanumber:= false;
+         for kk:= 1 to Length(nextchunk) do
+         begin
+            chrisanumber:= false;
+            for mm:= 0 to Length(numberchr) do
+            begin
+               if numberchr[mm] = nextchunk[kk] then chrisanumber:= true;
+            end;
+            if chrisanumber = false then chunkisanumber:= false;
+         end;
+         //Showmessage(booltostr(chunkisanumber));
+         if chunkisanumber = true then
+         begin
+            hrnum:=0;
+            firstdatarow:=firstdatarow-1;
+            StringGrid1.RowCount:=StringGrid1.RowCount+1;
+            //Showmessage(inttostr(hrnum));
+         end;
+         mystr:=Copy(mystr,mypos+1);
        end;
+
+
+
+
+       // add header row to stringgrid
        if mydatasets = 1 then
        begin
          if hrnum = 0 then
          begin
-            for k:= 3 to j do
+            for k:= 3 to j+2 do
                StringGrid1.Cells[k,0]:='Column'+InttoStr(k-2);
          end
          else
@@ -1773,9 +2080,84 @@ begin
        StringGrid1.Cells[2,0]:='DatasetName';
 
 
-       // assume columns 3 and 4 are number columns for now
-       xcol:= 3;
-       ycol:= 4;
+
+       // assign x and y columns to first two number columns
+       if j < 2 then
+       begin
+         xcol:=0;
+         ycol:=3;
+       end
+       else
+       begin
+         xcol:= 0;
+         ycol:= 3;
+         mystr:= Form1.Memo1.Lines[firstdatarow];
+         for mm:= 3 to j+2 do
+         begin
+           //showmessage(mystr);
+           mypos:= pos(mydelimstr, mystr);
+           nextchunk:=Copy(mystr,1,mypos-1);
+           chunkisanumber:= false;
+           if Length(nextchunk) > 0 then
+              chunkisanumber:= true;
+           for kk:= 1 to Length(nextchunk) do
+           begin
+                chrisanumber:= false;
+                for nn:= 0 to Length(numberchr) do
+                begin
+                   if numberchr[nn] = nextchunk[kk] then chrisanumber:= true;
+                end;
+                if chrisanumber = false then chunkisanumber:= false;
+           end;
+           if (chunkisanumber = true) and (xcol = 0) then
+           begin
+             xcol:=mm;
+             ycol:=mm;
+           end;
+           mystr:=Copy(mystr,mypos+1);
+         end;
+         if xcol = j+2 then // only one number column
+         begin
+              ycol:=xcol;
+              xcol:=0;
+              //ShowMessage('xcol = j+2 so only one number column');
+         end
+         else
+         begin
+           mystr:= Form1.Memo1.Lines[firstdatarow];
+           for mm:= 3 to j+2 do
+           begin
+             mypos:= pos(mydelimstr, mystr);
+             nextchunk:=Copy(mystr,1,mypos-1);
+             chunkisanumber:= true;
+             for kk:= 1 to Length(nextchunk) do
+             begin
+                  chrisanumber:= false;
+                  for nn:= 0 to Length(numberchr) do
+                  begin
+                     if numberchr[nn] = nextchunk[kk] then chrisanumber:= true;
+                  end;
+                  if chrisanumber = false then chunkisanumber:= false;
+             end;
+             if (chunkisanumber = true) and (ycol=xcol) then
+             begin
+               ycol:=mm;
+             end;
+             mystr:=Copy(mystr,mypos+1);
+           end;
+           if ycol = xcol then
+             begin       // only one number column
+                 ycol:=xcol;
+                 xcol:=0;
+                 //ShowMessage('cannot find a second number column so only one number column');
+
+             end;
+         end;
+
+
+       end;
+
+
     end
     else
     begin
@@ -1910,9 +2292,25 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  filestringlist: TStringList;
+  colonpos:       integer;
+  i:              integer;
+  aline:          String;
+  thefile:        String;
+
+
 begin
       //initialize the global variables
       myStringList:=TStringList.Create;               //Create my StringList
+      filestringlist:=TstringList.Create;
+      Form1.Panel1.Visible:= False;
+      Form1.Panel2.Visible:= False;
+      Form1.Image4.Visible:= False;
+      Form1.Image5.Visible:= False;
+      Form1.Image1.BringToFront;
+
+
       myDSnames:= [ '-','-','-','-','-','-','-','-','-','-',
                 '-','-','-','-','-','-','-','-','-','-',
                 '-','-','-','-','-','-','-','-','-','-',
@@ -2079,7 +2477,7 @@ begin
       myChartWidth:= 500;
       myYNumberFormat:= '%.1f%';
       myXNumberFormat:= '%:.1f%';
-      Memo1.Caption:='Paste Here';
+      Memo1.Caption:='<Paste Here/>';
       mydatasets:=0;
       xcol:=3;
       ycol:=4;
@@ -2096,6 +2494,8 @@ begin
       YisLog:= False;
       XisLog:= False;
       mySizeLocked:= False;
+      excelname:= 'SP-output.xlsx';
+      scriptname:= 'SP-script.py';
 
       StringGrid1.Options := StringGrid1.Options + [goEditing];
 
@@ -2113,6 +2513,103 @@ begin
       ListChartSource2.Add(20,20);
       Form1.Button5.Visible:= False;
       Form1.Button6.Visible:= False;
+
+      //Get Folder paths
+      ExecutablePath := ExtractFilePath(ParamStr(0));
+      UserDir := GetUserDir;
+      defaultfolder:= GetUserDir+'SP\';
+
+      //Check if a settings file exists
+      if FileExists(ExecutablePath+'SmatterPlot Settings.txt') then
+      begin
+         // FileExists so read it
+        thefile:=ExecutablePath+'SmatterPlot Settings.txt';
+        filestringlist.LoadfromFile(thefile,true);
+
+         for i:= 0 to filestringlist.Count-1 do
+         begin
+              if Pos(':', filestringlist[i]) > 0 then
+              begin
+                  aline:= filestringlist[i];
+                  colonpos:= Pos(':', aline);
+                  if Copy(aline, 1, colonpos-1) = 'myChartTitle' then
+                     myChartTitle:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'myYAxisTitle' then
+                     myYAxisTitle:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'myXAxisTitle' then
+                     myXAxisTitle:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'myChartTitleFontSize' then
+                     myChartTitleFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myYAxisTitleFontSize' then
+                     myYAxisTitleFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myXAxisTitleFontSize' then
+                     myXAxisTitleFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myYMarkFontSize' then
+                     myYMarkFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myXMarkFontSize' then
+                     myXMarkFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myLegendFontSize' then
+                     myLegendFontSize:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myChartHeight' then
+                     myChartHeight:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myChartWidth' then
+                     myChartWidth:= StrtoInt(Copy(aline, colonpos+2, Length(aline)));
+                  if Copy(aline, 1, colonpos-1) = 'myYNumberFormat' then
+                     myYNumberFormat:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'myXNumberFormat' then
+                     myXNumberFormat:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'defaultfolder' then
+                     defaultfolder:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'excelname' then
+                     excelname:= Copy(aline, colonpos+2, Length(aline));
+                  if Copy(aline, 1, colonpos-1) = 'scriptname' then
+                     scriptname:= Copy(aline, colonpos+2, Length(aline));
+              end;
+         end;
+         //ShowMessage('Read from ' +ExecutablePath+'Smatterplot Settings.txt');
+      end
+
+      else
+      begin
+         // File doesn't exist so write it
+         filestringlist.Add('<SmatterPlot v1.0>');
+         filestringlist.Add('HeaderRowPresent:=True');
+         filestringlist.Add('HeaderRow:=27');
+         filestringlist.Add('myChartTitle:='+myChartTitle);
+         filestringlist.Add('myYAxisTitle:='+myYAxisTitle);
+         filestringlist.Add('myXAxisTitle:='+myXAxisTitle);
+         filestringlist.Add('myChartTitleFontSize:='+InttoStr(myChartTitleFontSize));
+         filestringlist.Add('myYAxisTitleFontSize:='+InttoStr(myYAxisTitleFontSize));
+         filestringlist.Add('myXAxisTitleFontSize:='+InttoStr(myXAxisTitleFontSize));
+         filestringlist.Add('myYMarkFontSize:='+InttoStr(myYMarkFontSize));
+         filestringlist.Add('myXMarkFontSize:='+InttoStr(myXMarkFontSize));
+         filestringlist.Add('myLegendFontSize:='+InttoStr(myLegendFontSize));
+         filestringlist.Add('myChartHeight:='+InttoStr(myChartHeight));
+         filestringlist.Add('myChartWidth:='+InttoStr(myChartWidth));
+         filestringlist.Add('myYNumberFormat:='+myYNumberFormat);
+         filestringlist.Add('myXNumberFormat:='+myXNumberFormat);
+         filestringlist.Add('mydatasets:='+InttoStr(mydatasets));
+         filestringlist.Add('xcol:='+InttoStr(xcol));
+         filestringlist.Add('ycol:='+InttoStr(ycol));
+         filestringlist.Add('xmaxauto:='+BooltoStr(xmaxauto));
+         filestringlist.Add('ymaxauto:='+BooltoStr(ymaxauto));
+         filestringlist.Add('yminauto:='+BooltoStr(yminauto));
+         filestringlist.Add('xminauto:='+BooltoStr(xminauto));
+         filestringlist.Add('ymaxglob:='+FloattoStr(ymaxglob));
+         filestringlist.Add('yminglob:='+FloattoStr(yminglob));
+         filestringlist.Add('xmaxglob:='+FloattoStr(xmaxglob));
+         filestringlist.Add('xminglob:='+FloattoStr(xminglob));
+         filestringlist.Add('YisLog:='+BooltoStr(YisLog));
+         filestringlist.Add('XisLog:='+BooltoStr(XisLog));
+         filestringlist.Add('mySizeLocked:='+BooltoStr(mySizeLocked));
+         filestringlist.Add('defaultfolder:='+defaultfolder);
+         filestringlist.Add('excelname:='+excelname);
+         filestringlist.Add('scriptname:='+scriptname);
+         filestringlist.Add('Created:='+DateTimeToStr(Now));
+         filestringlist.Add('</SmatterPlot>');
+         filestringlist.SaveToFile(ExecutablePath+'SmatterPlot Settings.txt');
+         //ShowMessage('Wrote to '+ExecutablePath+'Smatterplot Settings.txt');
+      end;
 
 end;
 

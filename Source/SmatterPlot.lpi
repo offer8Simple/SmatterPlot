@@ -26,6 +26,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="laz_fpspreadsheet"/>
+      </Item>
+      <Item>
+        <PackageName Value="Abbrevia"/>
+      </Item>
+      <Item>
         <PackageName Value="BGRABitmapPack"/>
       </Item>
       <Item>
@@ -255,6 +261,46 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit30"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit31.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form31"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit31"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit32.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form32"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit32"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit33.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form33"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit33"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit34.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form34"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit34"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unit35.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form35"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit35"/>
       </Unit>
     </Units>
   </ProjectOptions>

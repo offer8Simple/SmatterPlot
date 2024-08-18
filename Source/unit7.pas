@@ -136,7 +136,7 @@ begin
     //Form7.Edit4.Caption:=FloattoStr(Form1.Chart1.CurrentExtent.a.x);
     xminauto:= true;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 

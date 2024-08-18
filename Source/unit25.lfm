@@ -1,7 +1,7 @@
 object Form25: TForm25
-  Left = 987
+  Left = 359
   Height = 208
-  Top = 114
+  Top = 564
   Width = 320
   Caption = 'Resize Chart'
   ClientHeight = 208

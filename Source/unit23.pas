@@ -93,7 +93,7 @@ begin
   if Form23.ComboBox1.Caption = mylinestext[i] then
      mylinestylesint[0]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -107,7 +107,7 @@ begin
   if Form23.ComboBox10.Caption = mylinestext[i] then
      mylinestylesint[9]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -117,7 +117,7 @@ begin
      mylinesint[0]:=1
   else
      mylinesint[0]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox10Change(Sender: TObject);
@@ -126,7 +126,7 @@ begin
      mylinesint[9]:=1
   else
      mylinesint[9]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.Button1Click(Sender: TObject);
@@ -187,7 +187,7 @@ begin
      Form23.CheckBox1.Checked:=false;
 
   Form2.RadioButton21.Checked;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox2Change(Sender: TObject);
@@ -196,7 +196,7 @@ begin
      mylinesint[1]:=1
   else
      mylinesint[1]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox3Change(Sender: TObject);
@@ -205,7 +205,7 @@ begin
      mylinesint[2]:=1
   else
      mylinesint[2]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox4Change(Sender: TObject);
@@ -214,7 +214,7 @@ begin
      mylinesint[3]:=1
   else
      mylinesint[3]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox5Change(Sender: TObject);
@@ -223,7 +223,7 @@ begin
      mylinesint[4]:=1
   else
      mylinesint[4]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox6Change(Sender: TObject);
@@ -232,7 +232,7 @@ begin
      mylinesint[5]:=1
   else
      mylinesint[5]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox7Change(Sender: TObject);
@@ -241,7 +241,7 @@ begin
      mylinesint[6]:=1
   else
      mylinesint[6]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox8Change(Sender: TObject);
@@ -250,7 +250,7 @@ begin
      mylinesint[7]:=1
   else
      mylinesint[7]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.CheckBox9Change(Sender: TObject);
@@ -259,7 +259,7 @@ begin
      mylinesint[8]:=1
   else
      mylinesint[8]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm23.ComboBox2Change(Sender: TObject);
@@ -272,7 +272,7 @@ begin
   if Form23.ComboBox2.Caption = mylinestext[i] then
      mylinestylesint[1]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -286,7 +286,7 @@ begin
   if Form23.ComboBox3.Caption = mylinestext[i] then
      mylinestylesint[2]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -300,7 +300,7 @@ begin
   if Form23.ComboBox4.Caption = mylinestext[i] then
      mylinestylesint[3]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -314,7 +314,7 @@ begin
   if Form23.ComboBox5.Caption = mylinestext[i] then
      mylinestylesint[4]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -328,7 +328,7 @@ begin
   if Form23.ComboBox6.Caption = mylinestext[i] then
      mylinestylesint[5]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -342,7 +342,7 @@ begin
   if Form23.ComboBox7.Caption = mylinestext[i] then
      mylinestylesint[6]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -356,7 +356,7 @@ begin
   if Form23.ComboBox8.Caption = mylinestext[i] then
      mylinestylesint[7]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 
@@ -370,7 +370,7 @@ begin
   if Form23.ComboBox9.Caption = mylinestext[i] then
      mylinestylesint[8]:= i;
 end;
-Form1.Button4.Click;
+Form1.RebuildChart();
 
 end;
 

@@ -49,7 +49,7 @@ begin
     if Form1.StringGrid1.Cells[2,i] = Form16.Label2.Caption then
        Form1.StringGrid1.Cells[2,i]:= Form16.Edit1.Caption;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
   // update Form15
   olddataset:= StrtoInt(Form1.StringGrid1.Cells[1,1]);

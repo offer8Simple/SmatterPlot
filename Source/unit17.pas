@@ -117,7 +117,7 @@ begin
   end;
 
 
-  Form1.Button4.Click; // Update Chart
+  Form1.RebuildChart(); // Update Chart
 
   //Form17.Hide;
 

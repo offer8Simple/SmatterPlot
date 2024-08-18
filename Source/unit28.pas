@@ -278,7 +278,7 @@ begin
         end;
   end;
 
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 end.

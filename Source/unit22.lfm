@@ -1,7 +1,7 @@
 object Form22: TForm22
-  Left = 644
+  Left = 426
   Height = 372
-  Top = 422
+  Top = 505
   Width = 287
   Caption = 'Symbol Sequence'
   ClientHeight = 372

@@ -1,7 +1,7 @@
 object Form5: TForm5
-  Left = 912
+  Left = 457
   Height = 417
-  Top = 309
+  Top = 388
   Width = 251
   Caption = 'Chart Sizes'
   ClientHeight = 417

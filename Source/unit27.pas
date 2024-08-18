@@ -117,7 +117,7 @@ begin
            mycolorsint[i]:= i+10;
          end;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 
 end;

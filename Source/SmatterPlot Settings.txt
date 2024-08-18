@@ -1,0 +1,35 @@
+<SmatterPlot v1.0>
+HeaderRowPresent:=True
+HeaderRow:=27
+myChartTitle:=Chart Title
+myYAxisTitle:=Y-Axis
+myXAxisTitle:=X-Axis
+myChartTitleFontSize:=16
+myYAxisTitleFontSize:=14
+myXAxisTitleFontSize:=14
+myYMarkFontSize:=12
+myXMarkFontSize:=12
+myLegendFontSize:=12
+myChartHeight:=500
+myChartWidth:=500
+myYNumberFormat:=%.1f%
+myXNumberFormat:=%:.1f%
+mydatasets:=3
+xcol:=3
+ycol:=4
+xmaxauto:=-1
+ymaxauto:=-1
+yminauto:=-1
+xminauto:=-1
+ymaxglob:=10
+yminglob:=1
+xmaxglob:=10
+xminglob:=1
+YisLog:=0
+XisLog:=0
+mySizeLocked:=0
+defaultfolder:=C:\Users\dshac\SP\
+excelname:=SP-output.xlsx
+scriptname:=SP-script.py
+Created:=8/15/2024 19:37:35
+</SmatterPlot>

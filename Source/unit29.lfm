@@ -1,7 +1,7 @@
 object Form29: TForm29
-  Left = 837
+  Left = 330
   Height = 484
-  Top = 434
+  Top = 484
   Width = 416
   Caption = 'Separate Columns into Different Datasets'
   ClientHeight = 484

@@ -1,0 +1,86 @@
+object Form34: TForm34
+  Left = 1051
+  Height = 310
+  Top = 133
+  Width = 537
+  Caption = 'Export to Python/Matplotlib'
+  ClientHeight = 310
+  ClientWidth = 537
+  Color = clSkyBlue
+  LCLVersion = '2.2.6.0'
+  object Label1: TLabel
+    Left = 14
+    Height = 15
+    Top = 48
+    Width = 133
+    Caption = 'Select folder to export to:'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 16
+    Height = 23
+    Top = 72
+    Width = 500
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object ToggleBox3: TToggleBox
+    Left = 456
+    Height = 58
+    Top = 240
+    Width = 67
+    Caption = 'Export'
+    OnChange = ToggleBox3Change
+    TabOrder = 1
+  end
+  object CheckBox1: TCheckBox
+    Left = 48
+    Height = 19
+    Top = 248
+    Width = 154
+    Caption = 'Overwrite files if existing?'
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 15
+    Top = 112
+    Width = 200
+    Caption = 'Enter Excel filename to export data to:'
+    ParentColor = False
+  end
+  object Edit2: TEdit
+    Left = 16
+    Height = 23
+    Top = 136
+    Width = 500
+    TabOrder = 3
+    Text = 'Edit2'
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 15
+    Top = 184
+    Width = 218
+    Caption = 'Enter Python Script filename to export to:'
+    ParentColor = False
+  end
+  object Edit3: TEdit
+    Left = 16
+    Height = 23
+    Top = 208
+    Width = 500
+    TabOrder = 4
+    Text = 'Edit3'
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 32
+    Top = 8
+    Width = 476
+    AutoSize = False
+    Caption = 'This will export the data from the current chart to an Excel file and then generate a python script to create a chart from that data using the MatPlotLib library.'
+    ParentColor = False
+    WordWrap = True
+  end
+end

@@ -104,7 +104,7 @@ begin
     Form1.Chart1.Height:= myChartHeight;
     Form1.Chart1.Width:= myChartWidth;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 

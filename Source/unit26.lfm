@@ -1,7 +1,7 @@
 object Form26: TForm26
-  Left = 848
+  Left = 392
   Height = 240
-  Top = 355
+  Top = 403
   Width = 310
   Caption = 'Custom Color'
   ClientHeight = 240

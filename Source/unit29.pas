@@ -153,7 +153,7 @@ begin
       Form1.StringGrid1.Cells[4,0]:= Form29.Edit1.Caption;
       myYAxisTitle:= Form29.Edit1.Caption;
       myXAxisTitle:=Form1.StringGrid1.Cells[3,0];
-      Form1.Button4.Click;
+      Form1.RebuildChart();
   end
   else
   begin

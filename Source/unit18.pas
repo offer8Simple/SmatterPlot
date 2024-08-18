@@ -6,7 +6,7 @@ unit Unit18;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Math;
 
 type
 
@@ -60,6 +60,10 @@ var
   catname: String;
   newcatname: String;
   catnum: longint;
+  myxmin: double;
+  myxmax: double;
+  myymin: double;
+  myymax: double;
 
 
 begin
@@ -117,9 +121,71 @@ begin
                   end;
               end;
               Form1.StringGrid1.DeleteColRow(False, rnum);
-
-
        end;
+
+
+
+       'Within Zoom Window':
+       begin
+              // get current zoom scaling
+              if Form1.Chart1.BottomAxis.Transformations=Form1.ChartAxisTransformations1 then
+              begin   // log scale
+                myxmax:= Power(10, Form1.Chart1.CurrentExtent.b.x);
+                myxmin:= Power(10, Form1.Chart1.CurrentExtent.a.x);
+              end
+              else
+              begin
+                myxmax:= Form1.Chart1.CurrentExtent.b.x;
+                myxmin:= Form1.Chart1.CurrentExtent.a.x;
+              end;
+              if Form1.Chart1.LeftAxis.Transformations=Form1.ChartAxisTransformations1 then
+              begin   // log scale
+                myymax:= Power(10, Form1.Chart1.CurrentExtent.b.y);
+                myymin:= Power(10, Form1.Chart1.CurrentExtent.a.y);
+              end
+              else
+              begin
+                myymax:= Form1.Chart1.CurrentExtent.b.y;
+                myymin:= Form1.Chart1.CurrentExtent.a.y;
+              end;
+
+             newname:= datasetname + '(Zoom)';
+             for i:= 1 to rnum-1 do
+             begin
+                  if Form1.StringGrid1.Cells[2,i] = datasetname then
+                  begin
+                     if (StrtoFloat(Form1.StringGrid1.Cells[xcol,i]) > myxmin)
+                        and (StrtoFloat(Form1.StringGrid1.Cells[xcol,i]) < myxmax)
+                        and (StrtoFloat(Form1.StringGrid1.Cells[ycol,i]) > myymin)
+                        and (StrtoFloat(Form1.StringGrid1.Cells[ycol,i]) < myymax) then
+                     begin
+                         Form1.StringGrid1.Cells[1,i]:= InttoStr(setnummax+1);
+                         Form1.StringGrid1.Cells[2,i]:= newname;
+                     end;
+                  end;
+             end;
+             // BubbleSort Rows by dataset number
+              Form1.StringGrid1.RowCount:= rnum +1;
+              For i:= 2 to rnum -1 do
+              begin
+                  For j:= 1 to rnum - i do
+                  begin
+                    if Form1.StringGrid1.Cells[1,j] > Form1.StringGrid1.Cells[1,j+1] then
+                    begin
+                      for k:= 0 to cnum-1 do
+                      begin
+                           Form1.StringGrid1.Cells[k,rnum]:= Form1.StringGrid1.Cells[k,j];
+                           Form1.StringGrid1.Cells[k,j]:= Form1.StringGrid1.Cells[k,j+1];
+                           Form1.StringGrid1.Cells[k,j+1]:= Form1.StringGrid1.Cells[k,rnum];
+                      end;
+                    end;
+                  end;
+              end;
+              Form1.StringGrid1.DeleteColRow(False, rnum);
+       end;
+
+
+
        'Category Column':
        begin
          // BubbleSort Rows by dataset number
@@ -211,14 +277,13 @@ begin
                end;
            end;
            Form1.StringGrid1.DeleteColRow(False, rnum);
-
-
-
        end;
 
 
+
+
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 

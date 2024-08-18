@@ -109,7 +109,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[9]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
@@ -139,7 +139,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[9]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
@@ -158,7 +158,7 @@ begin
   ColorBox9.Selected:=mycolors[mycolorsint[8]];
   ColorBox10.Selected:=mycolors[mycolorsint[9]];
   Form2.RadioButton1.Checked;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
@@ -185,7 +185,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[1]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox3Change(Sender: TObject);
@@ -205,7 +205,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[2]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox4Change(Sender: TObject);
@@ -225,7 +225,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[3]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox5Change(Sender: TObject);
@@ -245,7 +245,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[4]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox6Change(Sender: TObject);
@@ -264,7 +264,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[5]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox7Change(Sender: TObject);
@@ -283,7 +283,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[6]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox8Change(Sender: TObject);
@@ -302,7 +302,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[7]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm4.ColorBox9Change(Sender: TObject);
@@ -321,7 +321,7 @@ begin
      if thecolor = mycolors[j] then
         mycolorsint[8]:=j;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 end.

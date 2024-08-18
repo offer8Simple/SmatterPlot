@@ -93,7 +93,7 @@ begin
     if Form22.ComboBox1.Caption = mysymbolstext[i] then
        mysymbolsint[0]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox10Change(Sender: TObject);
@@ -106,7 +106,7 @@ begin
     if Form22.ComboBox10.Caption = mysymbolstext[i] then
        mysymbolsint[9]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox1Change(Sender: TObject);
@@ -115,7 +115,7 @@ begin
      mysymbolsopen[0]:=1
   else
      mysymbolsopen[0]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
@@ -125,7 +125,7 @@ begin
      mysymbolsopen[9]:=1
   else
      mysymbolsopen[9]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.Button1Click(Sender: TObject);
@@ -186,7 +186,7 @@ begin
      Form22.CheckBox1.Checked:=false;
 
   Form2.RadioButton7.Checked;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox2Change(Sender: TObject);
@@ -195,7 +195,7 @@ begin
      mysymbolsopen[1]:=1
   else
      mysymbolsopen[1]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox3Change(Sender: TObject);
@@ -204,7 +204,7 @@ begin
      mysymbolsopen[2]:=1
   else
      mysymbolsopen[2]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox4Change(Sender: TObject);
@@ -213,7 +213,7 @@ begin
      mysymbolsopen[3]:=1
   else
      mysymbolsopen[3]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox5Change(Sender: TObject);
@@ -222,7 +222,7 @@ begin
      mysymbolsopen[4]:=1
   else
      mysymbolsopen[4]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox6Change(Sender: TObject);
@@ -231,7 +231,7 @@ begin
      mysymbolsopen[5]:=1
   else
      mysymbolsopen[5]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox7Change(Sender: TObject);
@@ -240,7 +240,7 @@ begin
      mysymbolsopen[6]:=1
   else
      mysymbolsopen[6]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox8Change(Sender: TObject);
@@ -249,7 +249,7 @@ begin
      mysymbolsopen[7]:=1
   else
      mysymbolsopen[7]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.CheckBox9Change(Sender: TObject);
@@ -258,7 +258,7 @@ begin
      mysymbolsopen[8]:=1
   else
      mysymbolsopen[8]:=0;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox2Change(Sender: TObject);
@@ -271,7 +271,7 @@ begin
     if Form22.ComboBox2.Caption = mysymbolstext[i] then
        mysymbolsint[1]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox3Change(Sender: TObject);
@@ -284,7 +284,7 @@ begin
     if Form22.ComboBox3.Caption = mysymbolstext[i] then
        mysymbolsint[2]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox4Change(Sender: TObject);
@@ -297,7 +297,7 @@ begin
     if Form22.ComboBox4.Caption = mysymbolstext[i] then
        mysymbolsint[3]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox5Change(Sender: TObject);
@@ -310,7 +310,7 @@ begin
     if Form22.ComboBox5.Caption = mysymbolstext[i] then
        mysymbolsint[4]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox6Change(Sender: TObject);
@@ -323,7 +323,7 @@ begin
     if Form22.ComboBox6.Caption = mysymbolstext[i] then
        mysymbolsint[5]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox7Change(Sender: TObject);
@@ -336,7 +336,7 @@ begin
     if Form22.ComboBox7.Caption = mysymbolstext[i] then
        mysymbolsint[6]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox8Change(Sender: TObject);
@@ -349,7 +349,7 @@ begin
     if Form22.ComboBox8.Caption = mysymbolstext[i] then
        mysymbolsint[7]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.ComboBox9Change(Sender: TObject);
@@ -362,7 +362,7 @@ begin
     if Form22.ComboBox9.Caption = mysymbolstext[i] then
        mysymbolsint[8]:= i;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 end;
 
 procedure TForm22.FormActivate(Sender: TObject);

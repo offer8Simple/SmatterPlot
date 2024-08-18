@@ -53,7 +53,7 @@ begin
   // Click Update Button
 
   //find variable columns
-  for i:= 3 to Form1.StringGrid1.ColCount-1 do
+  for i:= 0 to Form1.StringGrid1.ColCount-1 do
   begin
 
      if Form9.ComboBox1.Caption = Form1.StringGrid1.Cells[i,0] then
@@ -70,7 +70,7 @@ begin
 
      end;
   end;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 
 end;

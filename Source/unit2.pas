@@ -856,7 +856,7 @@ begin
 
   Form1.Chart1.BottomAxis.Range.UseMax:= false;
   Form1.Chart1.BottomAxis.Range.UseMin:= false;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
@@ -870,7 +870,7 @@ begin
 
   Form1.Chart1.LeftAxis.Range.UseMax:= false;
   Form1.Chart1.LeftAxis.Range.UseMin:= false;
-  Form1.Button4.Click;
+  Form1.RebuildChart();
 
 end;
 
