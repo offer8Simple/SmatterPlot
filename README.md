@@ -14,21 +14,21 @@ SmatterPlot is not quite complete -- I'm still working on it, but it is stable a
 
 Current features include:
 
-*Instant chart with drag-and-drop or copy-and-paste.
-*AI-based chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
-*Instant title, axis and series labelling based on context.
-*Instant overlay of multiple datasets.
-Open data from a wide range of formats (.xlsx, .csv, .txt, etc.)
-Generate charts in a wide range of image formats (.png, .jpg, etc.)
-Export to Excel with a customized chart.
-Export to python script with a customized MatPlotLib chart.
-Instant unit conversions right in the chart.
-Instant zoom, pan, and resize.
-Easy customization of colors, styles, sizes, symbols, lines, etc.
-Easy sequencing of series with color, symbol, and line grouping.
-Easy mathematical transformations such as averaging, smoothing, sorting, model fitting, differentiating, integrating and statistical analysis.
-Easy dataset management with splitting, combining, and reducing datasets.
-Easy generation of randomized datasets.
+- Instant chart with drag-and-drop or copy-and-paste.
+- AI-based chart design selection, so the user doesn't have to choose all the chart features -- they are just there immediately.
+- Instant title, axis and series labelling based on context.
+- Instant overlay of multiple datasets.
+- Open data from a wide range of formats (.xlsx, .csv, .txt, etc.)
+- Generate charts in a wide range of image formats (.png, .jpg, etc.)
+- Export to Excel with a customized chart.
+- Export to python script with a customized MatPlotLib chart.
+- Instant unit conversions right in the chart.
+- Instant zoom, pan, and resize.
+- Easy customization of colors, styles, sizes, symbols, lines, etc.
+- Easy sequencing of series with color, symbol, and line grouping.
+- Easy mathematical transformations such as averaging, smoothing, sorting, model fitting, differentiating, integrating and statistical analysis.
+- Easy dataset management with splitting, combining, and reducing datasets.
+- Easy generation of randomized datasets.
 
 Features Planned:
 SmatterPlot will have a lot of features designed to make everything quick and easy.  When it's finished it will be the quickest way to make a plot from data whether it is in spreadsheet or simply copied from the web.  Plans for the future include:
